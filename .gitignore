@@ -4,6 +4,7 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+src/main/java/org/util/glowlib/Test.java
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
