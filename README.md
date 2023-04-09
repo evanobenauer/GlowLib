@@ -20,8 +20,8 @@ dependencies {
 
 Below is a guide on how to use certain functions from GlowLib:
 
-#Settings
+# Settings
 //TODO ADD
-#Events
+# Events
 //TODO ADD
 
