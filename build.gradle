@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group System.getProperty('groupId')
-version System.getProperty('version')
+group groupI
+version versionI
 
 repositories {
     mavenCentral()
@@ -14,9 +14,9 @@ repositories {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = System.getProperty('groupId')
-            artifactId = System.getProperty('artifactId')
-            version = System.getProperty('version')
+            groupId = groupI
+            artifactId = artifactI
+            version = versionI
             from components.java
         }
     }
