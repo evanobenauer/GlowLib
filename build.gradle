@@ -3,24 +3,20 @@ plugins {
     id 'maven-publish'
 }
 
-group 'org.util.glowlib'
-version '1.0.3'
+group System.getProperty('groupId')
+version System.getProperty('version')
 
 repositories {
     mavenCentral()
     google()
 }
 
-dependencies {
-
-}
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'org.util.glowlib'
-            artifactId = 'GlowLib'
-            version = '1.0.2'
+            groupId = System.getProperty('groupId')
+            artifactId = System.getProperty('artifactId')
+            version = System.getProperty('version')
             from components.java
         }
     }
