@@ -8,6 +8,7 @@ package org.util.glowlib.setting;
  */
 public class SettingUI<T> extends Setting<T> {
 
+    //TODO add descriptions to constructors
 
     private Double min;
     private Double max;

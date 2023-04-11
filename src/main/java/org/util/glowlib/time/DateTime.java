@@ -109,15 +109,18 @@ public class DateTime {
         return Integer.parseInt(getSecond());
     }
 
-
     public String getFormattedDateTime() {
         return getYear() + "-" + getMonth() + "-" + getDay() + " " + getHour() + ":" + getMinute() + ":" + getSecond();
+    }
+    
+    public boolean isWeekend() {
+        int dayOfWeek = getCalendar().get(Calendar.DAY_OF_WEEK);
+        return dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY;
     }
 
     public Calendar getCalendar() {
         return calendar;
     }
-
 
     @Override
     public String toString() {
