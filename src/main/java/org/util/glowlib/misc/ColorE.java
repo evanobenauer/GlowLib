@@ -68,6 +68,9 @@ public class ColorE {
         this.alpha = alpha;
     }
 
+    public int getHash() {
+        return new Color(getRed(),getGreen(),getBlue(),getAlpha()).hashCode();
+    }
 
     @Override
     public String toString() {

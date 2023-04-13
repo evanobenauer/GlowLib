@@ -10,7 +10,6 @@ public class EventAction implements Runnable {
 
     private final Runnable action;
 
-
     /**
      * This is the default EventAction constructor.
      * In order to create an event code using this constructor, you must use a lambda statement as the action argument
@@ -44,6 +43,15 @@ public class EventAction implements Runnable {
     }
 
     /**
+     * This constructor allows for the declaration of an event without the declaration of an action. The action must be declared
+     * using an instantiation of the EventAction class and override the run() method
+     * @param event
+     */
+    public EventAction(EventE event) {
+        this(event, false,null);
+    }
+
+    /**
      * This constructor is a basic constructor without event declaration or action declaration.
      * In order to use this constructor, you must create a new instantiation of the EventAction class and override the
      * run() method. Code must be added there.
@@ -55,7 +63,7 @@ public class EventAction implements Runnable {
 
     @Override
     public void run() {
-        action.run();
+        getAction().run();
     }
 
 
@@ -78,6 +86,10 @@ public class EventAction implements Runnable {
 
     public EventE getEvent() {
         return event;
+    }
+
+    private Runnable getAction() {
+        return action;
     }
 
 }
