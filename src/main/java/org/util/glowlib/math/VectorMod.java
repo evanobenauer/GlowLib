@@ -50,6 +50,13 @@ public class VectorMod extends Vector {
     }
 
 
+    public VectorMod set(Vector vector) {
+        this.x = vector.getX();
+        this.y = vector.getY();
+        this.z = vector.getZ();
+        return this;
+    }
+    
     public VectorMod multiply(double multiplier) {
         this.x *= multiplier;
         this.y *= multiplier;
