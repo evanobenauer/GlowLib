@@ -1,7 +1,5 @@
 package org.util.glowlib.math;
 
-import org.util.glowlib.misc.Container;
-
 /**
  * The angle class is a simple container for an angle in radians with useful conversions and functions
  * to make mathematics with angles much simpler
@@ -80,6 +78,6 @@ public class Angle {
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Angle angle)) return false;
-        return angle.toString().equals(toString());
+        return angle.getRadians() == getRadians();
     }
 }

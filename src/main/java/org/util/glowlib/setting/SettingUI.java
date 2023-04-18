@@ -1,6 +1,5 @@
 package org.util.glowlib.setting;
 
-
 /**
  * The SettingUI Class is a modified setting class that is able to be used efficiently with visual data changers such as sliders
  * and selectors
@@ -9,7 +8,7 @@ package org.util.glowlib.setting;
 public class SettingUI<T> extends Setting<T> {
 
 
-    private String description;
+    private final String description;
 
     private Double min;
     private Double max;
@@ -22,7 +21,7 @@ public class SettingUI<T> extends Setting<T> {
      * Default Constructor. This is a general constructor which is not specialized and can hold any value which is good
      * for use of booleans, Strings, etc. as they do not require special parameters
      */
-    private SettingUI(SettingManager settingManager, String description, String name, T defaultVal) {
+    private SettingUI(SettingManager settingManager, String name, String description, T defaultVal) {
         super(settingManager,name,defaultVal);
         this.description = description;
     }
