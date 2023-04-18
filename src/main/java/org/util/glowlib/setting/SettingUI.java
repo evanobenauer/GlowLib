@@ -8,7 +8,8 @@ package org.util.glowlib.setting;
  */
 public class SettingUI<T> extends Setting<T> {
 
-    //TODO add descriptions to constructors
+
+    private String description;
 
     private Double min;
     private Double max;
@@ -21,27 +22,29 @@ public class SettingUI<T> extends Setting<T> {
      * Default Constructor. This is a general constructor which is not specialized and can hold any value which is good
      * for use of booleans, Strings, etc. as they do not require special parameters
      */
-    private SettingUI(SettingManager settingManager, String name, T defaultVal) {
+    private SettingUI(SettingManager settingManager, String description, String name, T defaultVal) {
         super(settingManager,name,defaultVal);
+        this.description = description;
     }
 
-    private SettingUI(String name, T defaultVal) {
+    private SettingUI(String name, String description, T defaultVal) {
         super(name,defaultVal);
+        this.description = description;
     }
 
     /**
      * Setting Number. This is a type of UI setting that has a minimum, maximum, and step value for slider UI systems
      * It is able to contain any number value needed to be saved and/or modified by the UI
      */
-    public SettingUI(SettingManager settingManager, String name, T defaultValue, double min, double max, double step) {
-        this(settingManager,name,defaultValue);
+    public SettingUI(SettingManager settingManager, String name, String description, T defaultValue, double min, double max, double step) {
+        this(settingManager,name,description,defaultValue);
         this.min = min;
         this.max = max;
         this.step = step;
     }
 
-    public SettingUI(String name, T defaultValue, double min, double max, double step) {
-        this(name,defaultValue);
+    public SettingUI(String name, String description, T defaultValue, double min, double max, double step) {
+        this(name,description,defaultValue);
         this.min = min;
         this.max = max;
         this.step = step;
@@ -51,17 +54,21 @@ public class SettingUI<T> extends Setting<T> {
      * Setting Mode. This is a type of UI setting that has a defined set of possible values to be cycled through.
      */
     @SafeVarargs
-    public SettingUI(SettingManager settingManager, String name, T defaultValue, T... modes) {
-        this(settingManager,name,defaultValue);
+    public SettingUI(SettingManager settingManager, String name,  String description, T defaultValue, T... modes) {
+        this(settingManager,name,description,defaultValue);
         this.modes = modes;
     }
 
     @SafeVarargs
-    public SettingUI(String name, T defaultValue, T... modes) {
-        this(name,defaultValue);
+    public SettingUI(String name, String description, T defaultValue, T... modes) {
+        this(name,description,defaultValue);
         this.modes = modes;
     }
 
+
+    public String getDescription() {
+        return description;
+    }
 
     public T getMin() {
         return (T) min;

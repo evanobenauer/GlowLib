@@ -1,7 +1,5 @@
 package org.util.glowlib.time;
 
-import org.util.glowlib.misc.Container;
-
 import java.util.Calendar;
 
 /**
@@ -40,6 +38,17 @@ public class DateTime {
                 Integer.parseInt(formattedDateTime.split(" ")[1].split(":")[1]),
                 Integer.parseInt(formattedDateTime.split(" ")[1].split(":")[2]));
     }
+
+    public DateTime(long id) {
+        this(Integer.parseInt((id + "").substring(0, 4)),
+                Integer.parseInt((id + "").substring(4, 6)),
+                Integer.parseInt((id + "").substring(6, 8)),
+                Integer.parseInt((id + "").substring(8, 10)),
+                Integer.parseInt((id + "").substring(10, 12)),
+                Integer.parseInt((id + "").substring(12, 14))
+        );
+    }
+
 
     public String getYear() {
         return "" + getCalendar().getWeekYear();
@@ -111,6 +120,14 @@ public class DateTime {
 
     public String getFormattedDateTime() {
         return getYear() + "-" + getMonth() + "-" + getDay() + " " + getHour() + ":" + getMinute() + ":" + getSecond();
+    }
+
+    public long getDateTimeID() {
+        try {
+            return Long.parseLong(getYear() + getMonth() + getDay() + getHour() + getMinute() + getSecond());
+        } catch (Exception e) {
+            return -1L;
+        }
     }
     
     public boolean isWeekend() {

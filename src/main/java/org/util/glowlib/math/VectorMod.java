@@ -23,7 +23,6 @@ public class VectorMod extends Vector {
         this(x,y,0);
     }
 
-
     /**
      * Cylindrical Coordinates
      * 3D
@@ -40,7 +39,6 @@ public class VectorMod extends Vector {
         this(radius,angle,0);
     }
 
-
     /**
      * Spherical Coordinates
      * 3D
@@ -49,18 +47,19 @@ public class VectorMod extends Vector {
         super(radiusRho,theta,phi);
     }
 
+    /**
+     * Create a VectorMod from a normal vector
+     * @param vector
+     */
+    public VectorMod(Vector vector) {
+        this(vector.getX(),vector.getY(),vector.getZ());
+    }
+
 
     public VectorMod set(Vector vector) {
         this.x = vector.getX();
         this.y = vector.getY();
         this.z = vector.getZ();
-        return this;
-    }
-    
-    public VectorMod multiply(double multiplier) {
-        this.x *= multiplier;
-        this.y *= multiplier;
-        this.z *= multiplier;
         return this;
     }
 
@@ -71,12 +70,20 @@ public class VectorMod extends Vector {
         return this;
     }
 
+    public VectorMod multiply(double multiplier) {
+        this.x *= multiplier;
+        this.y *= multiplier;
+        this.z *= multiplier;
+        return this;
+    }
+
     public VectorMod cross(Vector vec) {
         this.x = getY() * vec.getZ() - getZ() * vec.getY();
         this.y = -getX() * vec.getZ() + getZ() * vec.getX();
         this.z = getX() * vec.getY() - getY() * vec.getX();
         return this;
     }
+
 
     public VectorMod setCartesian(double x, double y, double z) {
         this.x = x;
@@ -86,6 +93,10 @@ public class VectorMod extends Vector {
         this.theta = new Angle(Math.atan(y/x));
         this.phi = new Angle(Math.acos(z/getMagnitude()));
         return this;
+    }
+
+    public VectorMod setCartesian(double x, double y) {
+        return setCartesian(x,y,0);
     }
 
     public VectorMod setCylindrical(double radius, Angle theta, double z) {

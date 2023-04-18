@@ -20,12 +20,8 @@ public class StopWatch {
     }
 
 
-    public void initStart() {
-        if (!isStarted()) start();
-    }
-
     public void start() {
-        setStartTimeMS(System.currentTimeMillis());
+        if (!isStarted()) restart();
     }
 
     public void stop() {
@@ -33,7 +29,16 @@ public class StopWatch {
     }
 
     public void restart() {
-        start();
+        setStartTimeMS(System.currentTimeMillis());
+    }
+
+
+    public boolean hasTimePassedMS(double time) {
+        return isStarted() && (time < (System.currentTimeMillis() - getStartTimeMS()));
+    }
+
+    public boolean hasTimePassedS(double time) {
+        return isStarted() && ((time*1000) < (System.currentTimeMillis() - getStartTimeMS()));
     }
 
 
@@ -41,21 +46,11 @@ public class StopWatch {
         return getStartTimeMS() > -1;
     }
 
-
-    public boolean hasTimeElapsedMS(double time) {
-        return isStarted() && (time < (System.currentTimeMillis() - getStartTimeMS()));
-    }
-
-    public boolean hasTimeElapsedS(double time) {
-        return isStarted() && ((time*1000) < (System.currentTimeMillis() - getStartTimeMS()));
-    }
-
-
-    public double getCurrentTimeMS() {
+    public double getTimeMS() {
         return System.currentTimeMillis() - getStartTimeMS();
     }
 
-    public double getCurrentTimeS() {
+    public double getTimeS() {
         long currentTime = System.currentTimeMillis() - getStartTimeMS();
         return Double.parseDouble(String.format("%.2f",((float)currentTime)/1000));
     }

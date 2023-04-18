@@ -1,16 +1,12 @@
 package org.util.glowlib.misc;
 
-import org.util.glowlib.math.Vector;
-
 /**
  * This class is a container class for a single value. This value can be changed and retrieved. This class is very
  * useful for using outside variables within lambda statements.
  */
 public class Container<T> {
 
-
     private T value;
-
 
     /**
      * Default Constructor
