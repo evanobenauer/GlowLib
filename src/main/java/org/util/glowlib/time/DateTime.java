@@ -15,19 +15,19 @@ public class DateTime {
 
     public DateTime(int year, int month, int day, int hour, int min, int sec) {
         calendar = Calendar.getInstance();
-        calendar.set(year, month - 1, day,hour,min,sec);
+        calendar.set(year, month - 1, day, hour, min, sec);
     }
 
     public DateTime(int year, int month, int day, int hour, int min) {
-        this(year,month,day,hour,min,0);
+        this(year, month, day, hour, min, 0);
     }
 
     public DateTime(int year, int month, int day, int hour) {
-        this(year,month,day,hour,0,0);
+        this(year, month, day, hour, 0, 0);
     }
 
     public DateTime(int year, int month, int day) {
-        this(year,month,day,0,0,0);
+        this(year, month, day, 0, 0, 0);
     }
 
     public DateTime(String formattedDateTime) {
@@ -40,23 +40,28 @@ public class DateTime {
     }
 
     public DateTime(long id) {
-        this(Integer.parseInt((id + "").substring(0, 4)),
-                Integer.parseInt((id + "").substring(4, 6)),
-                Integer.parseInt((id + "").substring(6, 8)),
-                Integer.parseInt((id + "").substring(8, 10)),
-                Integer.parseInt((id + "").substring(10, 12)),
-                Integer.parseInt((id + "").substring(12, 14))
+        this(Integer.parseInt((String.valueOf(id)).substring(0, 4)),
+                Integer.parseInt((String.valueOf(id)).substring(4, 6)),
+                Integer.parseInt((String.valueOf(id)).substring(6, 8)),
+                Integer.parseInt((String.valueOf(id)).substring(8, 10)),
+                Integer.parseInt((String.valueOf(id)).substring(10, 12)),
+                Integer.parseInt((String.valueOf(id)).substring(12, 14))
         );
     }
 
 
+    public boolean isWeekend() {
+        int dayOfWeek = getCalendar().get(Calendar.DAY_OF_WEEK);
+        return dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY;
+    }
+
     public String getYear() {
-        return "" + getCalendar().getWeekYear();
+        return String.valueOf(getCalendar().getWeekYear());
     }
 
     public String getMonth() {
-        String timeString = getCalendar().getTime().toString().substring(4,19);
-        String month = timeString.substring(0,3);
+        String timeString = getCalendar().getTime().toString().substring(4, 19);
+        String month = timeString.substring(0, 3);
         return switch (month) {
             case ("Jan") -> "01";
             case ("Feb") -> "02";
@@ -75,23 +80,23 @@ public class DateTime {
     }
 
     public String getDay() {
-        String timeString = getCalendar().getTime().toString().substring(4,19);
-        return timeString.substring(4,6);
+        String timeString = getCalendar().getTime().toString().substring(4, 19);
+        return timeString.substring(4, 6);
     }
 
     public String getHour() {
-        String timeString = getCalendar().getTime().toString().substring(4,19);
-        return timeString.substring(7,9);
+        String timeString = getCalendar().getTime().toString().substring(4, 19);
+        return timeString.substring(7, 9);
     }
 
     public String getMinute() {
-        String timeString = getCalendar().getTime().toString().substring(4,19);
-        return timeString.substring(10,12);
+        String timeString = getCalendar().getTime().toString().substring(4, 19);
+        return timeString.substring(10, 12);
     }
 
     public String getSecond() {
-        String timeString = getCalendar().getTime().toString().substring(4,19);
-        return timeString.substring(13,15);
+        String timeString = getCalendar().getTime().toString().substring(4, 19);
+        return timeString.substring(13, 15);
     }
 
     public int getYearInt() {
@@ -118,6 +123,7 @@ public class DateTime {
         return Integer.parseInt(getSecond());
     }
 
+
     public String getFormattedDateTime() {
         return getYear() + "-" + getMonth() + "-" + getDay() + " " + getHour() + ":" + getMinute() + ":" + getSecond();
     }
@@ -129,15 +135,12 @@ public class DateTime {
             return -1L;
         }
     }
-    
-    public boolean isWeekend() {
-        int dayOfWeek = getCalendar().get(Calendar.DAY_OF_WEEK);
-        return dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY;
-    }
+
 
     public Calendar getCalendar() {
         return calendar;
     }
+
 
     @Override
     public String toString() {

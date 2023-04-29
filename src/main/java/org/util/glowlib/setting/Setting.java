@@ -10,11 +10,10 @@ import org.util.glowlib.misc.Container;
  * This class holds a container to place a value as well as a name.
  * @param <T>
  */
-public class Setting<T> {
+public class Setting<T> extends Container<T> {
 
     private final SettingManager settingManager;
 
-    private final Container<T> container;
     private final T defaultVal;
 
     private final String key;
@@ -26,11 +25,9 @@ public class Setting<T> {
      * @param defaultVal
      */
     public Setting(SettingManager settingManager, String key, T defaultVal) {
+        super(defaultVal);
         this.key = key;
         this.defaultVal = defaultVal;
-
-        this.container = new Container<>(defaultVal);
-        this.container.set(defaultVal);
 
         this.settingManager = settingManager;
         this.settingManager.getSettingList().put(key, this);
@@ -49,18 +46,9 @@ public class Setting<T> {
     }
 
 
-    public T get() {
-        return getContainer().get();
-    }
-
-    public void set(T value) {
-        getContainer().set(value);
-    }
-
     public void reset() {
         set(getDefaultValue());
     }
-
 
     public boolean save() {
         return getSettingManager().saveAll();
@@ -77,10 +65,6 @@ public class Setting<T> {
 
     public T getDefaultValue() {
         return defaultVal;
-    }
-
-    public Container<T> getContainer() {
-        return container;
     }
 
 

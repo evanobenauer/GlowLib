@@ -39,7 +39,7 @@ public class SettingManager {
      * @return
      */
     @SuppressWarnings(value = "all")
-    public boolean saveAll(String path, String fileName) {
+    private boolean saveAll(String path, String fileName) {
         ArrayList<ArrayList<String>> dataList = new ArrayList<>();
 
         for (Setting setting : getSettingList().values()) {
@@ -66,7 +66,7 @@ public class SettingManager {
      * @return
      */
     @SuppressWarnings(value = "all")
-    public boolean loadAll(String path, String fileName) {
+    private boolean loadAll(String path, String fileName) {
         ArrayList<String[]> dataList = CSVManager.getDataFromCSV(path, fileName);
 
         try {
@@ -83,7 +83,7 @@ public class SettingManager {
                 else if (datatype.equals("float")) setting.set(Float.parseFloat(savedVal));
                 else if (datatype.equals("double")) setting.set(Double.parseDouble(savedVal));
                 else if (datatype.equals("boolean")) setting.set(Boolean.parseBoolean(savedVal));
-                else if (datatype.equals("datetime")) setting.set(new DateTime(savedVal)); //setting.set(DateTime.getDateTime(savedVal));
+                else if (datatype.equals("datetime")) setting.set(new DateTime(savedVal));
                 else if (datatype.equals("vector")) {
                     String[] vecVals = savedVal.replace("<","").replace(">","").split("\\|");
                     setting.set(new Vector(Double.parseDouble(vecVals[0]),Double.parseDouble(vecVals[1]),Double.parseDouble(vecVals[2])));

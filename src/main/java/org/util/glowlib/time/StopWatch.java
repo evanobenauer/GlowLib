@@ -35,17 +35,9 @@ public class StopWatch {
     public void restartAtMS(double timeMS) {
         if (hasTimePassedMS(timeMS)) restart();
     }
+
     public void restartAtS(double timeS) {
         if (hasTimePassedS(timeS)) restart();
-    }
-
-
-    public boolean hasTimePassedMS(double time) {
-        return isStarted() && (time < (System.currentTimeMillis() - getStartTimeMS()));
-    }
-
-    public boolean hasTimePassedS(double time) {
-        return isStarted() && ((time*1000) < (System.currentTimeMillis() - getStartTimeMS()));
     }
 
 
@@ -53,13 +45,20 @@ public class StopWatch {
         return getStartTimeMS() > -1;
     }
 
+    public boolean hasTimePassedMS(double time) {
+        return isStarted() && time < getTimeMS();
+    }
+
+    public boolean hasTimePassedS(double time) {
+        return isStarted() && time*1000 < getTimeMS();
+    }
+
     public double getTimeMS() {
         return System.currentTimeMillis() - getStartTimeMS();
     }
 
     public double getTimeS() {
-        long currentTime = System.currentTimeMillis() - getStartTimeMS();
-        return Double.parseDouble(String.format("%.2f",((float)currentTime)/1000));
+        return Double.parseDouble(String.format("%.2f",((float)getTimeMS())/1000));
     }
 
 
