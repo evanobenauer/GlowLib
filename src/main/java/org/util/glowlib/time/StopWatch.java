@@ -32,6 +32,13 @@ public class StopWatch {
         setStartTimeMS(System.currentTimeMillis());
     }
 
+    public void restartAtMS(double timeMS) {
+        if (hasTimePassedMS(timeMS)) restart();
+    }
+    public void restartAtS(double timeS) {
+        if (hasTimePassedS(timeS)) restart();
+    }
+
 
     public boolean hasTimePassedMS(double time) {
         return isStarted() && (time < (System.currentTimeMillis() - getStartTimeMS()));

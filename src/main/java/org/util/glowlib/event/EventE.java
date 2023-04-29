@@ -10,11 +10,7 @@ import java.util.ArrayList;
  */
 public abstract class EventE {
 
-
-    public static final ArrayList<EventE> events = new ArrayList<>();
-
     private final ArrayList<EventAction> eventActions = new ArrayList<>();
-
 
     /**
      * This method is placed wherever you want the event to be executed. If a method requires specific running methods, you shall
