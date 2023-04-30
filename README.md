@@ -16,23 +16,6 @@ repositories {
 dependencies {
     implementation 'com.github.evanobenauer:GlowLib:1.0.5'
 }
-```
-
-In order to implement this dependency in a JavaFX project, you must do this
-//TODO ADD
-
-In order to implement this dependency into a Minecraft Forge 1.17.1+ project, add this to your build.gradle file:
-```groovy
-repositories {
-  maven {
-    url 'https://jitpack.io'
-  }
-}
-
-dependencies {
-    minecraftLibrary 'com.github.evanobenauer:GlowLib:1.0.5'
-}
-```
 
 Below is a guide on how to use certain functions from GlowLib:
 
