@@ -16,7 +16,7 @@ repositories {
 dependencies {
     implementation 'com.github.evanobenauer:GlowLib:1.0.5'
 }
-
+```
 Below is a guide on how to use certain functions from GlowLib:
 
 # Settings
