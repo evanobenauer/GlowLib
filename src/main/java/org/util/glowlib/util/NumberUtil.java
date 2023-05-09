@@ -45,4 +45,10 @@ public class NumberUtil {
         }
     }
 
+    public static Number boundValue(Number value, double low, double high) {
+        if (value.doubleValue() < low) value = low;
+        if (value.doubleValue() > high) value = high;
+        return value;
+    }
+
 }
