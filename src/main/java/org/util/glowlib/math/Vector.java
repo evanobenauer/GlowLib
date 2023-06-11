@@ -90,6 +90,14 @@ public class Vector {
         return new Vector(getX() + vec.getX(), getY() + vec.getY(), getZ() + vec.getZ());
     }
 
+    public Vector getAdded(double x, double y, double z) {
+        return getAdded(new Vector(x,y,z));
+    }
+
+    public Vector getAdded(double x, double y) {
+        return getAdded(x,y,0);
+    }
+
 
     public Vector getCross(Vector vec) {
         return new Vector(

@@ -1,5 +1,7 @@
 package org.util.glowlib.misc;
 
+import org.util.glowlib.util.NumberUtil;
+
 import java.awt.*;
 
 public class ColorE {
@@ -16,9 +18,10 @@ public class ColorE {
     public static ColorE GREY = new ColorE(new Color(125,125,125));
     public static ColorE BLACK = new ColorE(new Color(0,0,0));
 
+    public static ColorE NULL = new ColorE(0,0,0,0);
+
 
     private int red, green, blue, alpha;
-
 
     public ColorE(int red, int green, int blue, int alpha) {
         this.red = red;
@@ -54,32 +57,23 @@ public class ColorE {
 
 
     public void setRed(int red) {
-        if (red > 255) red = 255;
-        if (red < 0) red = 0;
-        this.red = red;
+        this.red = (int)NumberUtil.getBoundValue(red,0,255);
     }
 
     public void setGreen(int green) {
-        if (green > 255) green = 255;
-        if (green < 0) green = 0;
-        this.green = green;
+        this.green = (int)NumberUtil.getBoundValue(green,0,255);
     }
 
     public void setBlue(int blue) {
-        if (blue > 255) blue = 255;
-        if (blue < 0) blue = 0;
-        this.blue = blue;
+        this.blue = (int)NumberUtil.getBoundValue(blue,0,255);
     }
 
     public void setAlpha(int alpha) {
-        if (alpha > 255) alpha = 255;
-        if (alpha < 0) alpha = 0;
-        this.alpha = alpha;
+        this.alpha = (int)NumberUtil.getBoundValue(alpha,0,255);
     }
 
     public int getHash() {
         return ((getAlpha() & 0xFF) << 24) | ((getRed() & 0xFF) << 16) | ((getGreen() & 0xFF) << 8)  | ((getBlue() & 0xFF) << 0);
-        //return new Color(getRed(),getGreen(),getBlue(),getAlpha()).hashCode();
     }
 
     @Override

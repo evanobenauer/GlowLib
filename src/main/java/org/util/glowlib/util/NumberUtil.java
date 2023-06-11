@@ -45,7 +45,7 @@ public class NumberUtil {
         }
     }
 
-    public static Number bindValue(Number value, double low, double high) {
+    public static Number getBoundValue(Number value, double low, double high) {
         if (value.doubleValue() < low) value = low;
         if (value.doubleValue() > high) value = high;
         return value;
