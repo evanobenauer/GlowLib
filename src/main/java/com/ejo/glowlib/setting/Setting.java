@@ -1,9 +1,9 @@
-package org.util.glowlib.setting;
+package com.ejo.glowlib.setting;
 
-import org.util.glowlib.math.Vector;
-import org.util.glowlib.misc.ColorE;
-import org.util.glowlib.time.DateTime;
-import org.util.glowlib.misc.Container;
+import com.ejo.glowlib.math.Vector;
+import com.ejo.glowlib.misc.ColorE;
+import com.ejo.glowlib.time.DateTime;
+import com.ejo.glowlib.misc.Container;
 
 /**
  * This is a setting class. Setting classes are classes that can have their values saved and loaded to the computer for future use.

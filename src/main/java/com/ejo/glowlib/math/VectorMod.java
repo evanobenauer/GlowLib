@@ -1,4 +1,4 @@
-package org.util.glowlib.math;
+package com.ejo.glowlib.math;
 
 /**
  * This is a modifiable version of the vector class. Variables can be changed and set for unique scenarios

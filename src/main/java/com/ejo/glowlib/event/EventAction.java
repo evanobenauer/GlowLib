@@ -1,4 +1,4 @@
-package org.util.glowlib.event;
+package com.ejo.glowlib.event;
 
 /**
  * An Event Action is a runnable code block that can be subscribed or unsubscribed to an event. It has the option to function as

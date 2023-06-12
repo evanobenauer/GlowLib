@@ -1,4 +1,4 @@
-package org.util.glowlib.time;
+package com.ejo.glowlib.time;
 
 import java.util.Calendar;
 

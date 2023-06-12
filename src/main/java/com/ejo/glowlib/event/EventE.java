@@ -1,4 +1,4 @@
-package org.util.glowlib.event;
+package com.ejo.glowlib.event;
 
 import java.util.ArrayList;
 

@@ -1,9 +1,9 @@
-package org.util.glowlib.setting;
+package com.ejo.glowlib.setting;
 
-import org.util.glowlib.file.CSVManager;
-import org.util.glowlib.math.Vector;
-import org.util.glowlib.misc.ColorE;
-import org.util.glowlib.time.DateTime;
+import com.ejo.glowlib.file.CSVManager;
+import com.ejo.glowlib.math.Vector;
+import com.ejo.glowlib.misc.ColorE;
+import com.ejo.glowlib.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package org.util.glowlib.file;
+package com.ejo.glowlib.file;
 
 import java.io.BufferedWriter;
 import java.io.File;

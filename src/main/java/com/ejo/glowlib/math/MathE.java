@@ -1,6 +1,6 @@
-package org.util.glowlib.math;
+package com.ejo.glowlib.math;
 
-import org.util.glowlib.util.StringUtil;
+import com.ejo.glowlib.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;

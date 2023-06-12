@@ -1,4 +1,4 @@
-package org.util.glowlib.util;
+package com.ejo.glowlib.util;
 
 /**
  * The StringUtil class offers many conversion checking methods for Strings

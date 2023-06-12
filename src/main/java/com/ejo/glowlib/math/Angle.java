@@ -1,4 +1,4 @@
-package org.util.glowlib.math;
+package com.ejo.glowlib.math;
 
 /**
  * The angle class is a simple container for an angle in radians with useful conversions and functions

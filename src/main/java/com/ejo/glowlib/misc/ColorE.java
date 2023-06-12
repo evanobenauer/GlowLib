@@ -1,6 +1,6 @@
-package org.util.glowlib.misc;
+package com.ejo.glowlib.misc;
 
-import org.util.glowlib.util.NumberUtil;
+import com.ejo.glowlib.util.NumberUtil;
 
 import java.awt.*;
 
@@ -57,7 +57,7 @@ public class ColorE {
 
 
     public void setRed(int red) {
-        this.red = (int)NumberUtil.getBoundValue(red,0,255);
+        this.red = (int) NumberUtil.getBoundValue(red,0,255);
     }
 
     public void setGreen(int green) {

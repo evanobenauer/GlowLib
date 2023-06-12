@@ -1,4 +1,4 @@
-package org.util.glowlib.util;
+package com.ejo.glowlib.util;
 
 /**
  * Lambda Util offers a bunch of interfaces with different attributes that can be used in different types

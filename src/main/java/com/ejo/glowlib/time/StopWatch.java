@@ -1,4 +1,4 @@
-package org.util.glowlib.time;
+package com.ejo.glowlib.time;
 
 /**
  * The StopWatch class is a very simple stop watch. It is able to start, stop, restart, and get the time at any point in its process.

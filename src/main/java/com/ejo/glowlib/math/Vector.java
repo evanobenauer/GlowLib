@@ -1,4 +1,4 @@
-package org.util.glowlib.math;
+package com.ejo.glowlib.math;
 
 /**
  * The vector class is a container class for coordinates in Cartesian, Cylindrical, and Polar, including their 2D

@@ -1,4 +1,4 @@
-package org.util.glowlib.util;
+package com.ejo.glowlib.util;
 
 /**
  * The NumberUtil class offers many conversion checking methods for numbers

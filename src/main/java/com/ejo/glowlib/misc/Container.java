@@ -1,4 +1,4 @@
-package org.util.glowlib.misc;
+package com.ejo.glowlib.misc;
 
 /**
  * This class is a container class for a single value. This value can be changed and retrieved. This class is very

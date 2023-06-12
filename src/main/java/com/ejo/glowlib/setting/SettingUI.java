@@ -1,10 +1,12 @@
-package org.util.glowlib.setting;
+package com.ejo.glowlib.setting;
 
+//TODO: Remove SettingUI
 /**
  * The SettingUI Class is a modified setting class that is able to be used efficiently with visual data changers such as sliders
  * and selectors
  * @param <T>
  */
+@Deprecated
 public class SettingUI<T> extends Setting<T> {
 
 
