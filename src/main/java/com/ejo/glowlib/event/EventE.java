@@ -1,6 +1,7 @@
 package com.ejo.glowlib.event;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 /**
  * Events are classes that can be instantiated and have their own set of actions that are executed each loop during the post method.
@@ -15,12 +16,17 @@ public class EventE {
 
     /**
      * This method is placed wherever you want the event to be executed. If a method requires specific running methods, you shall
-     * extend the event class and override the post method to include said restraints/extensions
+     * extend the event class and override the post method to include said restraints/extensions. It is important when overriding this
+     * method to place the super on the last line of the override
      */
     public void post(Object... args) {
         this.args = args;
         for (EventAction event : getActions()) {
-            event.run();
+            try {
+                event.run();
+            } catch (ConcurrentModificationException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -34,7 +40,10 @@ public class EventE {
         try {
             if (!getActions().contains(action))
                 return getActions().add(action);
-        } catch (Exception e) {
+        } catch (ConcurrentModificationException e) {
+            e.printStackTrace();
+            return false;
+        } catch (NullPointerException e) {
             return false;
         }
         return false;
@@ -48,7 +57,10 @@ public class EventE {
     public boolean unsubscribeAction(EventAction action) {
         try {
             return getActions().remove(action);
-        } catch (Exception e) {
+        } catch (ConcurrentModificationException e) {
+            e.printStackTrace();
+            return false;
+        } catch (NullPointerException e) {
             return false;
         }
     }
@@ -63,7 +75,10 @@ public class EventE {
                 unsubscribeAction(action);
             }
             return true;
-        } catch (Exception e) {
+        } catch (ConcurrentModificationException e) {
+            e.printStackTrace();
+            return false;
+        } catch (NullPointerException e) {
             return false;
         }
     }
