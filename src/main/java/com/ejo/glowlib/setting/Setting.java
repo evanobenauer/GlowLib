@@ -103,7 +103,7 @@ public class Setting<T> extends Container<T> {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Setting setting)) return false;
+        if (!(obj instanceof Setting<?> setting)) return false;
         return setting.toString().equals(toString()) && setting.getDefaultValue().equals(getDefaultValue());
     }
 

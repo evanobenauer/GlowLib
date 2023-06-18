@@ -37,7 +37,7 @@ public class Container<T> {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Container container)) return false;
+        if (!(obj instanceof Container<?> container)) return false;
         return container.get().equals(get());
     }
 }

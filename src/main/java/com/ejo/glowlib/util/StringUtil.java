@@ -34,7 +34,7 @@ public class StringUtil {
     }
 
     public static boolean isStringBoolean(String string) {
-        return string.toLowerCase().equals("true") || string.toLowerCase().equals("false");
+        return string.equalsIgnoreCase("true") || string.equalsIgnoreCase("false");
     }
 
 

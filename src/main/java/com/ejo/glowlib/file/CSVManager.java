@@ -18,11 +18,6 @@ public class CSVManager {
             FileWriter writer = new FileWriter(outputFile);
             for (ArrayList<T> rowData : list) {
                 writer.write(String.join(",", (ArrayList<String>)rowData) + "\n");
-                /* All data in the array is converted to a string. This will slow down the saving method slightly, but it is not that bad
-                ArrayList<String> stringRowData = new ArrayList<>();
-                rowData.forEach((var) -> stringRowData.add(var.toString()));
-                writer.write(String.join(",", stringRowData) + "\n");
-                */
             }
             writer.close();
             return true;

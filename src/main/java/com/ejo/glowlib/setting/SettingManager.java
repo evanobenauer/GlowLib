@@ -21,7 +21,7 @@ public class SettingManager {
     private static final SettingManager defaultManager = new SettingManager("setting","settings");
 
 
-    private final HashMap<String, Setting> settingList = new HashMap<>();
+    private final HashMap<String, Setting<?>> settingList = new HashMap<>();
 
     private String settingPath;
     private String settingFileName;
@@ -123,7 +123,7 @@ public class SettingManager {
     }
 
 
-    public HashMap<String, Setting> getSettingList() {
+    public HashMap<String, Setting<?>> getSettingList() {
         return settingList;
     }
 
