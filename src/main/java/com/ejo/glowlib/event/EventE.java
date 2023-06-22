@@ -21,12 +21,12 @@ public class EventE {
      */
     public void post(Object... args) {
         this.args = args;
-        for (EventAction event : getActions()) {
-            try {
+        try {
+            for (EventAction event : getActions()) {
                 event.run();
-            } catch (ConcurrentModificationException e) {
-                e.printStackTrace();
             }
+        } catch (ConcurrentModificationException e) {
+            e.printStackTrace();
         }
     }
 
