@@ -2,6 +2,7 @@ package com.ejo.glowlib.file;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CSVManager {
 
@@ -18,6 +19,24 @@ public class CSVManager {
             FileWriter writer = new FileWriter(outputFile);
             for (T[] rowData : list) {
                 writer.write(String.join(",", (String[])rowData) + "\n");
+            }
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            System.out.println("Error writing data to " + outputFile);
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static <K,T> boolean saveAsCSV(HashMap<K,T[]> hashMap, String folderPath, String fileName) {
+        FileManager.createFolderPath(folderPath); //Creates the folder path if it does not exist
+        String outputFile = folderPath + "/" + fileName + ".csv";
+        try {
+            FileWriter writer = new FileWriter(outputFile);
+
+            for (K key : hashMap.keySet()) {
+                writer.write(key + "," + String.join(",", (String[])hashMap.get(key)) + "\n");
             }
             writer.close();
             return true;
@@ -49,6 +68,24 @@ public class CSVManager {
             e.printStackTrace();
         }
         return rawDataList;
+    }
+
+    public static HashMap<String,String[]> getHMDataFromCSV(String folderPath, String fileName) {
+        File file = new File(folderPath + "/" + fileName + ".csv");
+        HashMap<String,String[]> rawDataHashMap = new HashMap<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] row = line.split(",");
+                String key = row[0];
+                String[] rowCut = line.replace(key + ",","").split(",");
+                rawDataHashMap.put(row[0],rowCut);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return rawDataHashMap;
     }
 
 }
