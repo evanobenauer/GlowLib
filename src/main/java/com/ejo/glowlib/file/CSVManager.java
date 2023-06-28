@@ -11,13 +11,13 @@ public class CSVManager {
      * @param folderPath
      * @param fileName
      */
-    public static <T> boolean saveAsCSV(ArrayList<ArrayList<T>> list, String folderPath, String fileName) {
+    public static <T> boolean saveAsCSV(ArrayList<T[]> list, String folderPath, String fileName) {
         FileManager.createFolderPath(folderPath); //Creates the folder path if it does not exist
         String outputFile = folderPath + "/" + fileName + ".csv";
         try {
             FileWriter writer = new FileWriter(outputFile);
-            for (ArrayList<T> rowData : list) {
-                writer.write(String.join(",", (ArrayList<String>)rowData) + "\n");
+            for (T[] rowData : list) {
+                writer.write(String.join(",", (String[])rowData) + "\n");
             }
             writer.close();
             return true;

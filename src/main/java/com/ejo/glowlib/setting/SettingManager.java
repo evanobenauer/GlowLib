@@ -40,14 +40,10 @@ public class SettingManager {
      */
     @SuppressWarnings(value = "all")
     private boolean saveAll(String path, String fileName) {
-        ArrayList<ArrayList<String>> dataList = new ArrayList<>();
+        ArrayList<String[]> dataList = new ArrayList<>();
 
         for (Setting setting : getSettingList().values()) {
-            ArrayList<String> settingDataList = new ArrayList<>();
-            settingDataList.add(setting.getKey());
-            settingDataList.add(setting.get() + "");
-            settingDataList.add(setting.getType());
-
+            String[] settingDataList = {setting.getKey(),setting.get() + "",setting.getType()};
             dataList.add(settingDataList);
         }
         return CSVManager.saveAsCSV(dataList, path, fileName);
