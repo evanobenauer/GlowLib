@@ -1,5 +1,6 @@
 package com.ejo.glowlib.time;
 
+import java.time.LocalDateTime;
 import java.util.Calendar;
 
 /**
@@ -49,6 +50,11 @@ public class DateTime {
         );
     }
 
+
+    public DateTime getCurrentDateTime() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        return new DateTime(localDateTime.getYear(),localDateTime.getMonthValue(),localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond());
+    }
 
     public boolean isWeekend() {
         int dayOfWeek = getCalendar().get(Calendar.DAY_OF_WEEK);
