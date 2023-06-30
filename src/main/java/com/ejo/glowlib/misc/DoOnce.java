@@ -5,6 +5,17 @@ package com.ejo.glowlib.misc;
  */
 public class DoOnce {
 
+    public static DoOnce default1 = new DoOnce();
+    public static DoOnce default2 = new DoOnce();
+    public static DoOnce default3 = new DoOnce();
+    public static DoOnce default4 = new DoOnce();
+    public static DoOnce default5 = new DoOnce();
+    public static DoOnce default6 = new DoOnce();
+    public static DoOnce default7 = new DoOnce();
+    public static DoOnce default8 = new DoOnce();
+    public static DoOnce default9 = new DoOnce();
+    public static DoOnce default10 = new DoOnce();
+
     private boolean shouldRun;
 
     private Runnable action;
@@ -36,6 +47,7 @@ public class DoOnce {
     public void reset() {
         shouldRun = true;
     }
+
 
     public void setAction(Runnable action) {
         this.action = action;
