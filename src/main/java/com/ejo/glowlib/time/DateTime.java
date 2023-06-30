@@ -51,7 +51,7 @@ public class DateTime {
     }
 
 
-    public DateTime getCurrentDateTime() {
+    public static DateTime getCurrentDateTime() {
         LocalDateTime localDateTime = LocalDateTime.now();
         return new DateTime(localDateTime.getYear(),localDateTime.getMonthValue(),localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond());
     }
