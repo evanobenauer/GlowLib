@@ -5,16 +5,16 @@ package com.ejo.glowlib.misc;
  */
 public class DoOnce {
 
-    public static DoOnce default1 = new DoOnce();
-    public static DoOnce default2 = new DoOnce();
-    public static DoOnce default3 = new DoOnce();
-    public static DoOnce default4 = new DoOnce();
-    public static DoOnce default5 = new DoOnce();
-    public static DoOnce default6 = new DoOnce();
-    public static DoOnce default7 = new DoOnce();
-    public static DoOnce default8 = new DoOnce();
-    public static DoOnce default9 = new DoOnce();
-    public static DoOnce default10 = new DoOnce();
+    public static DoOnce DEFAULT1 = new DoOnce();
+    public static DoOnce DEFAULT2 = new DoOnce();
+    public static DoOnce DEFAULT3 = new DoOnce();
+    public static DoOnce DEFAULT4 = new DoOnce();
+    public static DoOnce DEFAULT5 = new DoOnce();
+    public static DoOnce DEFAULT6 = new DoOnce();
+    public static DoOnce DEFAULT7 = new DoOnce();
+    public static DoOnce DEFAULT8 = new DoOnce();
+    public static DoOnce DEFAULT9 = new DoOnce();
+    public static DoOnce DEFAULT10 = new DoOnce();
 
     private boolean shouldRun;
 
