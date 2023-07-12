@@ -55,26 +55,31 @@ public class ColorE {
         return alpha;
     }
 
-
-    public void setRed(int red) {
-        this.red = (int) NumberUtil.getBoundValue(red,0,255);
-    }
-
-    public void setGreen(int green) {
-        this.green = (int)NumberUtil.getBoundValue(green,0,255);
-    }
-
-    public void setBlue(int blue) {
-        this.blue = (int)NumberUtil.getBoundValue(blue,0,255);
-    }
-
-    public void setAlpha(int alpha) {
-        this.alpha = (int)NumberUtil.getBoundValue(alpha,0,255);
-    }
-
     public int getHash() {
         return ((getAlpha() & 0xFF) << 24) | ((getRed() & 0xFF) << 16) | ((getGreen() & 0xFF) << 8)  | ((getBlue() & 0xFF) << 0);
     }
+
+
+    public ColorE setRed(int red) {
+        this.red = (int) NumberUtil.getBoundValue(red,0,255);
+        return this;
+    }
+
+    public ColorE setGreen(int green) {
+        this.green = (int)NumberUtil.getBoundValue(green,0,255);
+        return this;
+    }
+
+    public ColorE setBlue(int blue) {
+        this.blue = (int)NumberUtil.getBoundValue(blue,0,255);
+        return this;
+    }
+
+    public ColorE setAlpha(int alpha) {
+        this.alpha = (int)NumberUtil.getBoundValue(alpha,0,255);
+        return this;
+    }
+
 
     @Override
     public String toString() {
