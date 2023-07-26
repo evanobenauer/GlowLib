@@ -45,14 +45,41 @@ public class FileManager {
      * @param name
      * @param path
      */
-    public static void createFile(String name, String path) {
+    public static boolean createFile(String path, String name) {
         createFolderPath(path);
         try {
             File file = new File(path, name);
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
             out.write("");
             out.close();
-        } catch (Exception ignored) {
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Deletes a file with the name and path specified
+     * @param name
+     * @param path
+     * @return
+     */
+    public static boolean deleteFile(String path, String name) {
+        try {
+            File file = new File(path,name);
+            return file.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean renameFile(String path, String name, String newName) {
+        try {
+            File file = new File(path,name);
+            return file.renameTo(new File(path,newName));
+        } catch (Exception e) {
+            return false;
         }
     }
 

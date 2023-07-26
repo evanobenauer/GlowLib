@@ -1,8 +1,11 @@
 package com.ejo.glowlib.file;
 
+import com.ejo.glowlib.time.StopWatch;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class CSVManager {
@@ -89,20 +92,30 @@ public class CSVManager {
         return rawDataHashMap;
     }
 
-    public static boolean combineCSVFiles(String combineDirectory, String outputDirectory, String outputFileName) {
+    /**
+     * Combines all CSV files in a directory into one CSV file of a chosen directory. All combined files are deleted after the combination.
+     * @param combineDirectory
+     * @param outputDirectory
+     * @param outputFileName
+     * @return
+     */
+    public static boolean combineFiles(String combineDirectory, String outputDirectory, String outputFileName) {
         try {
-            List<String> files = getCSVFilesInDirectory(combineDirectory);
             FileManager.createFolderPath(outputDirectory);
+            List<String> files = getCSVFilesInDirectory(combineDirectory);
             FileWriter writer = new FileWriter(outputDirectory + "/" + outputFileName + ".csv");
 
             for (String file : files) {
-                BufferedReader reader = new BufferedReader(new FileReader(combineDirectory + "/" + file));
+                FileReader fileReader = new FileReader(combineDirectory + "/" + file);
+                BufferedReader reader = new BufferedReader(fileReader);
                 String line;
                 while ((line = reader.readLine()) != null) {
                     writer.append(line);
                     writer.append("\n");
                 }
                 reader.close();
+                fileReader.close();
+                FileManager.deleteFile(combineDirectory,file);
             }
             writer.flush();
             writer.close();
@@ -114,10 +127,35 @@ public class CSVManager {
         }
     }
 
-    public static List<String> getCSVFilesInDirectory(String directoryPath) {
-        File directory = new File(directoryPath);
+    public static boolean clearDuplicates(String directory, String name) {
+        HashSet<String> uniqueValues = new HashSet<>();
+        try {
+            FileReader reader = new FileReader(directory + "/" + name + ".csv");
+            BufferedReader br = new BufferedReader(reader);
+            String line;
+            FileWriter writer = new FileWriter(directory + "/" + name + "_temp" + ".csv");
+            while ((line = br.readLine()) != null) {
+                if (uniqueValues.add(line)) {
+                    writer.append(line);
+                    writer.append("\n");
+                }
+            }
+            writer.flush();
+            writer.close();
+            reader.close();
+            FileManager.deleteFile(directory,name + ".csv");
+            FileManager.renameFile(directory,name + "_temp" + ".csv",name + ".csv");
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static List<String> getCSVFilesInDirectory(String directory) {
+        File folder = new File(directory);
         List<String> files = new ArrayList<>();
-        for (File file : directory.listFiles()) {
+        for (File file : folder.listFiles()) {
             if (file.isFile() && file.getName().endsWith(".csv")) {
                 files.add(file.getName());
             }
