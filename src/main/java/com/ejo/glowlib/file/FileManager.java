@@ -3,6 +3,8 @@ package com.ejo.glowlib.file;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileManager {
 
@@ -74,6 +76,13 @@ public class FileManager {
         }
     }
 
+    /**
+     * Renames the specified file with path and name to a new name
+     * @param path
+     * @param name
+     * @param newName
+     * @return
+     */
     public static boolean renameFile(String path, String name, String newName) {
         try {
             File file = new File(path,name);
@@ -81,6 +90,33 @@ public class FileManager {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    /**
+     * Returns a boolean value if a file exists or now at the specified path and name
+     * @param path
+     * @param name
+     * @return
+     */
+    private boolean doesFileExist(String path, String name) {
+        File file = new File(path, name);
+        return file.exists();
+    }
+
+    /**
+     * Returns a list of file path/name strings for all files in the specified directory
+     * @param directory
+     * @return
+     */
+    public static List<String> getFilesInDirectory(String directory) {
+        File folder = new File(directory);
+        List<String> files = new ArrayList<>();
+        for (File file : folder.listFiles()) {
+            if (file.isFile()) {
+                files.add(file.getName());
+            }
+        }
+        return files;
     }
 
 }

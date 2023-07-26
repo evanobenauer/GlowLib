@@ -33,6 +33,15 @@ public class CSVManager {
         }
     }
 
+    /**
+     * This method saves a HashMap as a CSV file in a specified location.
+     * @param hashMap
+     * @param folderPath
+     * @param fileName
+     * @return
+     * @param <K>
+     * @param <T>
+     */
     public static <K,T> boolean saveAsCSV(HashMap<K,T[]> hashMap, String folderPath, String fileName) {
         FileManager.createFolderPath(folderPath); //Creates the folder path if it does not exist
         String outputFile = folderPath + "/" + fileName + ".csv";
@@ -74,6 +83,12 @@ public class CSVManager {
         return rawDataList;
     }
 
+    /**
+     * This method returns a HashMap with a key and String array from a CSV file
+     * @param folderPath
+     * @param fileName
+     * @return
+     */
     public static HashMap<String,String[]> getHMDataFromCSV(String folderPath, String fileName) {
         File file = new File(folderPath + "/" + fileName + ".csv");
         HashMap<String,String[]> rawDataHashMap = new HashMap<>();
@@ -127,6 +142,13 @@ public class CSVManager {
         }
     }
 
+
+    /**
+     * This method inputs a CSV file and deletes all duplicate rows, leaving only 1 copy of each row
+     * @param directory
+     * @param name
+     * @return
+     */
     public static boolean clearDuplicates(String directory, String name) {
         HashSet<String> uniqueValues = new HashSet<>();
         try {
@@ -152,6 +174,11 @@ public class CSVManager {
         }
     }
 
+    /**
+     * This method returns a list of all CSV files in a specified directory
+     * @param directory
+     * @return
+     */
     public static List<String> getCSVFilesInDirectory(String directory) {
         File folder = new File(directory);
         List<String> files = new ArrayList<>();
