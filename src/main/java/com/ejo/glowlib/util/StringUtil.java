@@ -5,6 +5,37 @@ package com.ejo.glowlib.util;
  */
 public class StringUtil {
 
+    public static char getLetterFromIndex(int index) {
+        return switch(index) {
+            case 1 -> 'a';
+            case 2 -> 'b';
+            case 3 -> 'c';
+            case 4 -> 'd';
+            case 5 -> 'e';
+            case 6 -> 'f';
+            case 7 -> 'g';
+            case 8 -> 'h';
+            case 9 -> 'i';
+            case 10 -> 'j';
+            case 11 -> 'k';
+            case 12 -> 'l';
+            case 13 -> 'm';
+            case 14 -> 'n';
+            case 15 -> 'o';
+            case 16 -> 'p';
+            case 17 -> 'q';
+            case 18 -> 'r';
+            case 19 -> 's';
+            case 20 -> 't';
+            case 21 -> 'u';
+            case 22 -> 'v';
+            case 23 -> 'w';
+            case 24 -> 'x';
+            case 25 -> 'y';
+            case 26 -> 'z';
+            default -> '_';
+        };
+    }
 
     public static boolean isStringInteger(String string) {
         try {

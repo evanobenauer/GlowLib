@@ -52,8 +52,7 @@ public class FileManager {
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
             out.write("");
             out.close();
-        } catch (Exception e) {
-            //
+        } catch (Exception ignored) {
         }
     }
 

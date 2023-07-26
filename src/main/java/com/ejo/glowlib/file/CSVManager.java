@@ -3,6 +3,7 @@ package com.ejo.glowlib.file;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class CSVManager {
 
@@ -86,6 +87,42 @@ public class CSVManager {
             e.printStackTrace();
         }
         return rawDataHashMap;
+    }
+
+    public static boolean combineCSVFiles(String combineDirectory, String outputDirectory, String outputFileName) {
+        try {
+            List<String> files = getCSVFilesInDirectory(combineDirectory);
+            FileManager.createFolderPath(outputDirectory);
+            FileWriter writer = new FileWriter(outputDirectory + "/" + outputFileName + ".csv");
+
+            for (String file : files) {
+                BufferedReader reader = new BufferedReader(new FileReader(combineDirectory + "/" + file));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    writer.append(line);
+                    writer.append("\n");
+                }
+                reader.close();
+            }
+            writer.flush();
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            System.out.println("Could not combine CSV Files");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static List<String> getCSVFilesInDirectory(String directoryPath) {
+        File directory = new File(directoryPath);
+        List<String> files = new ArrayList<>();
+        for (File file : directory.listFiles()) {
+            if (file.isFile() && file.getName().endsWith(".csv")) {
+                files.add(file.getName());
+            }
+        }
+        return files;
     }
 
 }
