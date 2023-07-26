@@ -10,7 +10,8 @@ import java.util.Calendar;
  */
 public class DateTime {
 
-    private final DateTime NULL_TIME = new DateTime(0,0,0);
+    public static final DateTime NULL_TIME = new DateTime(0,0,0);
+
 
     private final Calendar calendar;
 
