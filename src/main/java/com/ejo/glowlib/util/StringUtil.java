@@ -7,32 +7,32 @@ public class StringUtil {
 
     public static char getLetterFromIndex(int index) {
         return switch(index) {
-            case 1 -> 'a';
-            case 2 -> 'b';
-            case 3 -> 'c';
-            case 4 -> 'd';
-            case 5 -> 'e';
-            case 6 -> 'f';
-            case 7 -> 'g';
-            case 8 -> 'h';
-            case 9 -> 'i';
-            case 10 -> 'j';
-            case 11 -> 'k';
-            case 12 -> 'l';
-            case 13 -> 'm';
-            case 14 -> 'n';
-            case 15 -> 'o';
-            case 16 -> 'p';
-            case 17 -> 'q';
-            case 18 -> 'r';
-            case 19 -> 's';
-            case 20 -> 't';
-            case 21 -> 'u';
-            case 22 -> 'v';
-            case 23 -> 'w';
-            case 24 -> 'x';
-            case 25 -> 'y';
-            case 26 -> 'z';
+            case 0 -> 'a';
+            case 1 -> 'b';
+            case 2 -> 'c';
+            case 3 -> 'd';
+            case 4 -> 'e';
+            case 5 -> 'f';
+            case 6 -> 'g';
+            case 7 -> 'h';
+            case 8 -> 'i';
+            case 9 -> 'j';
+            case 10 -> 'k';
+            case 11 -> 'l';
+            case 12 -> 'm';
+            case 13 -> 'n';
+            case 14 -> 'o';
+            case 15 -> 'p';
+            case 16 -> 'q';
+            case 17 -> 'r';
+            case 18 -> 's';
+            case 19 -> 't';
+            case 20 -> 'u';
+            case 21 -> 'v';
+            case 22 -> 'w';
+            case 23 -> 'x';
+            case 24 -> 'y';
+            case 25 -> 'z';
             default -> '_';
         };
     }
