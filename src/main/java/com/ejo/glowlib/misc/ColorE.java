@@ -7,18 +7,18 @@ import java.awt.*;
 public class ColorE {
 
 
-    public static ColorE RED = new ColorE(new Color(255, 0, 0));
-    public static ColorE ORANGE = new ColorE(new Color(200, 100, 0));
-    public static ColorE YELLOW = new ColorE(new Color(255, 200, 0));
-    public static ColorE GREEN = new ColorE(new Color(0, 255, 0));
-    public static ColorE BLUE = new ColorE(new Color(0, 119, 255));
-    public static ColorE PURPLE = new ColorE(new Color(100, 0, 255));
-    public static ColorE WHITE = new ColorE(new Color(255,255,255));
-    public static ColorE GRAY = new ColorE(new Color(125,125,125));
-    public static ColorE GREY = new ColorE(new Color(125,125,125));
-    public static ColorE BLACK = new ColorE(new Color(0,0,0));
+    public static final ColorE RED = new ColorE(new Color(255, 0, 0));
+    public static final ColorE ORANGE = new ColorE(new Color(200, 100, 0));
+    public static final ColorE YELLOW = new ColorE(new Color(255, 200, 0));
+    public static final ColorE GREEN = new ColorE(new Color(0, 255, 0));
+    public static final ColorE BLUE = new ColorE(new Color(0, 119, 255));
+    public static final ColorE PURPLE = new ColorE(new Color(100, 0, 255));
+    public static final ColorE WHITE = new ColorE(new Color(255,255,255));
+    public static final ColorE GRAY = new ColorE(new Color(125,125,125));
+    public static final ColorE GREY = new ColorE(new Color(125,125,125));
+    public static final ColorE BLACK = new ColorE(new Color(0,0,0));
 
-    public static ColorE NULL = new ColorE(0,0,0,0);
+    public static final ColorE NULL = new ColorE(0,0,0,0);
 
 
     private int red, green, blue, alpha;
@@ -36,6 +36,23 @@ public class ColorE {
 
     public ColorE(Color color) {
         this(color.getRed(),color.getGreen(),color.getBlue(),color.getAlpha());
+    }
+
+
+    public ColorE red(int red) {
+        return new ColorE(red,getGreen(),getBlue(),getAlpha());
+    }
+
+    public ColorE green(int green) {
+        return new ColorE(getRed(),green,getBlue(),getAlpha());
+    }
+
+    public ColorE blue(int blue) {
+        return new ColorE(getRed(),getGreen(),blue,getAlpha());
+    }
+
+    public ColorE alpha(int alpha) {
+        return new ColorE(getRed(),getGreen(),getBlue(),alpha);
     }
 
 
