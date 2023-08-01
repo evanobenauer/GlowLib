@@ -22,11 +22,8 @@ public class EventE {
     public void post(Object... args) {
         this.args = args;
         try {
-            for (EventAction event : getActions()) {
-                event.run();
-            }
-        } catch (ConcurrentModificationException e) {
-            e.printStackTrace();
+            for (EventAction event : getActions()) event.run();
+        } catch (ConcurrentModificationException ignored) {
         }
     }
 
@@ -40,10 +37,7 @@ public class EventE {
         try {
             if (!getActions().contains(action))
                 return getActions().add(action);
-        } catch (ConcurrentModificationException e) {
-            e.printStackTrace();
-            return false;
-        } catch (NullPointerException e) {
+        } catch (ConcurrentModificationException | NullPointerException e) {
             return false;
         }
         return false;
@@ -57,10 +51,7 @@ public class EventE {
     public boolean unsubscribeAction(EventAction action) {
         try {
             return getActions().remove(action);
-        } catch (ConcurrentModificationException e) {
-            e.printStackTrace();
-            return false;
-        } catch (NullPointerException e) {
+        } catch (ConcurrentModificationException | NullPointerException e) {
             return false;
         }
     }
@@ -71,14 +62,9 @@ public class EventE {
      */
     public boolean unsubscribeAllActions() {
         try {
-            for (EventAction action : getActions()) {
-                unsubscribeAction(action);
-            }
+            for (EventAction action : getActions()) unsubscribeAction(action);
             return true;
-        } catch (ConcurrentModificationException e) {
-            e.printStackTrace();
-            return false;
-        } catch (NullPointerException e) {
+        } catch (ConcurrentModificationException | NullPointerException e) {
             return false;
         }
     }
