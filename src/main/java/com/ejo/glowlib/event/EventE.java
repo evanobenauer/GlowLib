@@ -35,8 +35,10 @@ public class EventE {
      */
     public boolean subscribeAction(EventAction action) {
         try {
-            if (!getActions().contains(action))
+            if (!getActions().contains(action)) {
+                action.isSubscribed().set(true);
                 return getActions().add(action);
+            }
         } catch (ConcurrentModificationException | NullPointerException e) {
             return false;
         }
@@ -50,6 +52,7 @@ public class EventE {
      */
     public boolean unsubscribeAction(EventAction action) {
         try {
+            action.isSubscribed().set(false);
             return getActions().remove(action);
         } catch (ConcurrentModificationException | NullPointerException e) {
             return false;

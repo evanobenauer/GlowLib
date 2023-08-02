@@ -1,5 +1,7 @@
 package com.ejo.glowlib.event;
 
+import com.ejo.glowlib.setting.Container;
+
 /**
  * An Event Action is a runnable code block that can be subscribed or unsubscribed to an event. It has the option to function as
  * a simple block that may be subscribed, but has the ability to subscribe itself
@@ -7,8 +9,8 @@ package com.ejo.glowlib.event;
 public class EventAction implements Runnable {
 
     private final EventE event;
-
     private final Runnable action;
+    private final Container<Boolean> subscribed;
 
     /**
      * This is the default EventAction constructor.
@@ -20,6 +22,7 @@ public class EventAction implements Runnable {
     public EventAction(EventE event, boolean subscribeOnInstantiation, Runnable action) {
         this.event = event;
         this.action = action;
+        this.subscribed = new Container<>(false);
         if (subscribeOnInstantiation) subscribe();
     }
 
@@ -83,6 +86,10 @@ public class EventAction implements Runnable {
         }
     }
 
+
+    public Container<Boolean> isSubscribed() {
+        return subscribed;
+    }
 
     public EventE getEvent() {
         return event;

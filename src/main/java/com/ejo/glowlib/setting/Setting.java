@@ -3,7 +3,6 @@ package com.ejo.glowlib.setting;
 import com.ejo.glowlib.math.Vector;
 import com.ejo.glowlib.misc.ColorE;
 import com.ejo.glowlib.time.DateTime;
-import com.ejo.glowlib.misc.Container;
 
 /**
  * This is a setting class. Setting classes are classes that can have their values saved and loaded to the computer for future use.

@@ -12,7 +12,6 @@ public class DateTime {
 
     public static final DateTime NULL_TIME = new DateTime(0,0,0);
 
-
     private final Calendar calendar;
 
     public DateTime(int year, int month, int day, int hour, int min, int sec) {
