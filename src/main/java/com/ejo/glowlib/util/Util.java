@@ -1,7 +1,9 @@
 package com.ejo.glowlib.util;
 
-//TODO: Add list sorting mechanism
-public class ListUtil {
+/**
+ * General Utility Class for GlowLib containing various useful and misc methods
+ */
+public class Util {
 
     public static <T> int getMaxRowSize(T[][] grid) {
         int length = grid[0].length;
@@ -17,6 +19,14 @@ public class ListUtil {
             if (string.length() > length) length = string.length();
         }
         return length;
+    }
+
+    public static Thread runInThread(String name, boolean daemon, Runnable action) {
+        Thread thread = new Thread(action);
+        thread.setName(name);
+        thread.setDaemon(daemon);
+        thread.start();
+        return thread;
     }
 
 }

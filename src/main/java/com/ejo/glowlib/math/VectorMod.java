@@ -63,6 +63,20 @@ public class VectorMod extends Vector {
         return this;
     }
 
+    public VectorMod setX(double x) {
+        this.x = x;
+        return this;
+    }
+
+    public VectorMod setY(double y) {
+        this.y = y;
+        return this;
+    }
+    public VectorMod setZ(double z) {
+        this.z = z;
+        return this;
+    }
+
     public VectorMod add(Vector vec) {
         this.x += vec.getX();
         this.y += vec.getY();
