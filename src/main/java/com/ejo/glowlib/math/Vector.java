@@ -14,7 +14,6 @@ public class Vector {
 
 
     protected double x, y, z;
-    protected Angle theta, phi;
 
     /**
      * A vector without inputted parameters will default to the NULL vector <0,0,0>
@@ -31,11 +30,7 @@ public class Vector {
         this.x = x;
         this.y = y;
         this.z = z;
-
-        this.theta = new Angle(Math.atan(y/x));
-        this.phi = new Angle(Math.acos(z/getMagnitude()));
     }
-
 
     /**
      * Cartesian Coordinates
@@ -54,9 +49,6 @@ public class Vector {
         this.x = radius * Math.cos(theta.getRadians());
         this.y = radius * Math.sin(theta.getRadians());
         this.z = z;
-
-        this.theta = theta;
-        this.phi = new Angle(Math.acos(z/getMagnitude()));
     }
 
     /**
@@ -76,9 +68,6 @@ public class Vector {
         this.x = radiusRho * Math.cos(theta.getRadians() * Math.sin(phi.getRadians()));
         this.y = radiusRho * Math.sin(theta.getRadians() * Math.sin(phi.getRadians()));
         this.z = radiusRho * Math.cos(phi.getRadians());
-
-        this.theta = theta;
-        this.phi = phi;
     }
 
 
@@ -138,7 +127,7 @@ public class Vector {
     }
 
     public Angle getTheta() {
-        return theta;
+        return new Angle(Math.atan(getY()/getX()));
     }
 
 
@@ -147,7 +136,7 @@ public class Vector {
     }
 
     public Angle getPhi() {
-        return phi;
+        return new Angle(Math.acos(getZ()/getMagnitude()));
     }
 
 

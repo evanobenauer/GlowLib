@@ -103,9 +103,6 @@ public class VectorMod extends Vector {
         this.x = x;
         this.y = y;
         this.z = z;
-
-        this.theta = new Angle(Math.atan(y/x));
-        this.phi = new Angle(Math.acos(z/getMagnitude()));
         return this;
     }
 
@@ -117,9 +114,6 @@ public class VectorMod extends Vector {
         this.x = radius * Math.cos(theta.getRadians());
         this.y = radius * Math.sin(theta.getRadians());
         this.z = z;
-
-        this.theta = theta;
-        this.phi = new Angle(Math.acos(z/getMagnitude()));
         return this;
     }
 
@@ -127,9 +121,6 @@ public class VectorMod extends Vector {
         this.x = radiusRho * Math.cos(theta.getRadians() * Math.sin(phi.getRadians()));
         this.y = radiusRho * Math.sin(theta.getRadians() * Math.sin(phi.getRadians()));
         this.z = radiusRho * Math.cos(phi.getRadians());
-
-        this.theta = theta;
-        this.phi = phi;
         return this;
     }
 
