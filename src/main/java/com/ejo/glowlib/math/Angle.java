@@ -32,23 +32,6 @@ public class Angle {
     }
 
 
-    private void add(Angle angle) {
-        this.angle += angle.getRadians();
-    }
-
-    private void add(double angleRadians) {
-        this.angle += angleRadians;
-    }
-
-    private void multiply(Angle angle) {
-        this.angle *= angle.getRadians();
-    }
-
-    private void multiply(double angleRadians) {
-        this.angle *= angleRadians;
-    }
-
-
     private void setAngleRadians(double angle) {
         this.angle = angle;
     }
