@@ -21,6 +21,13 @@ public class Vector {
     }
 
     /**
+     * A vector can be created from another vector so that it may not entangle with a static vector
+     */
+    public Vector(Vector vector) {
+        this(vector.getX(), vector.getY(), vector.getZ());
+    }
+
+    /**
      * Cartesian Coordinates
      * 3D
      */
