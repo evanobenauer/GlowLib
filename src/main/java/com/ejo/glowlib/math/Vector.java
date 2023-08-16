@@ -202,6 +202,10 @@ public class Vector {
     }
 
 
+    public Vector copy() {
+        return new Vector(getX(),getY(),getZ());
+    }
+
     @Override
     public String toString() {
         return "<" + getX() + "|" + getY() + "|" + getZ() + ">";
