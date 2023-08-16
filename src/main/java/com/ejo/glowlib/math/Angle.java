@@ -32,13 +32,27 @@ public class Angle {
     }
 
 
-    //TODO: IDK if i want to keep these. It may be unnecessary to modify the angle class after creation similar to vector
-    // For now they will be set to private so they are not used:
-    @Deprecated
+    private void add(Angle angle) {
+        this.angle += angle.getRadians();
+    }
+
+    private void add(double angleRadians) {
+        this.angle += angleRadians;
+    }
+
+    private void multiply(Angle angle) {
+        this.angle *= angle.getRadians();
+    }
+
+    private void multiply(double angleRadians) {
+        this.angle *= angleRadians;
+    }
+
+
     private void setAngleRadians(double angle) {
         this.angle = angle;
     }
-    @Deprecated
+
     private void setAngleDegrees(double angle) {
         this.angle = angle * 180 / PI;
     }

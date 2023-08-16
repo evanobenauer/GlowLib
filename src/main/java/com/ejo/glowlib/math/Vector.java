@@ -6,12 +6,10 @@ package com.ejo.glowlib.math;
  */
 public class Vector {
 
-
     public static final Vector I = new Vector(1,0,0);
     public static final Vector J = new Vector(0,1,0);
     public static final Vector K = new Vector(0,0,1);
     public static final Vector NULL = new Vector(0,0,0);
-
 
     protected double x, y, z;
 
@@ -71,9 +69,63 @@ public class Vector {
     }
 
 
-    public Vector getMultiplied(double multiplier) {
-        return new Vector(getX() * multiplier,getY() * multiplier, getZ() * multiplier);
+    public Vector set(Vector vector) {
+        this.x = vector.getX();
+        this.y = vector.getY();
+        this.z = vector.getZ();
+        return this;
     }
+
+    public Vector setCartesian(double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        return this;
+    }
+
+    public Vector setCartesian(double x, double y) {
+        return setCartesian(x,y,0);
+    }
+
+    public Vector setCylindrical(double radius, Angle theta, double z) {
+        this.x = radius * Math.cos(theta.getRadians());
+        this.y = radius * Math.sin(theta.getRadians());
+        this.z = z;
+        return this;
+    }
+
+    public Vector setPolar(double radius, Angle theta) {
+        return setCylindrical(radius,theta,0);
+    }
+
+    public Vector setSpherical(double radiusRho, Angle theta, Angle phi) {
+        this.x = radiusRho * Math.cos(theta.getRadians() * Math.sin(phi.getRadians()));
+        this.y = radiusRho * Math.sin(theta.getRadians() * Math.sin(phi.getRadians()));
+        this.z = radiusRho * Math.cos(phi.getRadians());
+        return this;
+    }
+
+    public Vector add(Vector vec) {
+        this.x += vec.getX();
+        this.y += vec.getY();
+        this.z += vec.getZ();
+        return this;
+    }
+
+    public Vector multiply(double multiplier) {
+        this.x *= multiplier;
+        this.y *= multiplier;
+        this.z *= multiplier;
+        return this;
+    }
+
+    public Vector cross(Vector vec) {
+        this.x = getY() * vec.getZ() - getZ() * vec.getY();
+        this.y = -getX() * vec.getZ() + getZ() * vec.getX();
+        this.z = getX() * vec.getY() - getY() * vec.getX();
+        return this;
+    }
+
 
     public Vector getAdded(Vector vec) {
         return new Vector(getX() + vec.getX(), getY() + vec.getY(), getZ() + vec.getZ());
@@ -87,6 +139,9 @@ public class Vector {
         return getAdded(x,y,0);
     }
 
+    public Vector getMultiplied(double multiplier) {
+        return new Vector(getX() * multiplier,getY() * multiplier, getZ() * multiplier);
+    }
 
     public Vector getCross(Vector vec) {
         return new Vector(
