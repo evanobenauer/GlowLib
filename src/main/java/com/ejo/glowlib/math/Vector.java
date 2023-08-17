@@ -137,6 +137,10 @@ public class Vector {
     }
 
 
+    public VectorMod getMod() {
+        return new VectorMod(this);
+    }
+
     @Override
     public String toString() {
         return "<" + getX() + "|" + getY() + "|" + getZ() + ">";
