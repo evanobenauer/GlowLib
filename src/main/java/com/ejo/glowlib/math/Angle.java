@@ -16,7 +16,7 @@ public class Angle {
 
 
     public Angle(double angle, boolean isDegrees) {
-        if (isDegrees) this.angle = angle * 180 / PI;
+        if (isDegrees) this.angle = angle * PI / 180;
         else this.angle = angle;
     }
 
@@ -63,7 +63,7 @@ public class Angle {
     public Vector getDirectionVector(boolean shouldRound) {
         double x = shouldRound ? MathE.roundDouble(Math.cos(getRadians()),6) : Math.cos(getRadians());
         double y = shouldRound ? MathE.roundDouble(Math.sin(getRadians()),6) : Math.sin(getRadians());
-        return new Vector(x,y);
+        return new Vector(x,-y);
     }
 
 
