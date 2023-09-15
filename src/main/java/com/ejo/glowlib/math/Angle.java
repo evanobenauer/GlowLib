@@ -63,7 +63,7 @@ public class Angle {
     public Vector getDirectionVector(boolean shouldRound) {
         double x = shouldRound ? MathE.roundDouble(Math.cos(getRadians()),6) : Math.cos(getRadians());
         double y = shouldRound ? MathE.roundDouble(Math.sin(getRadians()),6) : Math.sin(getRadians());
-        return new Vector(x,y);
+        return new Vector(x,-y);
     }
 
 
