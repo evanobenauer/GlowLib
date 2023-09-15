@@ -16,7 +16,7 @@ public class Angle {
 
 
     public Angle(double angle, boolean isDegrees) {
-        if (isDegrees) this.angle = angle * 180 / PI;
+        if (isDegrees) this.angle = angle * PI / 180;
         else this.angle = angle;
     }
 
