@@ -81,6 +81,18 @@ public class Vector {
         return getAdded(x,y,0);
     }
 
+    public Vector getSubtracted(Vector vec) {
+        return new Vector(getX() - vec.getX(), getY() - vec.getY(), getZ() - vec.getZ());
+    }
+
+    public Vector getSubtracted(double x, double y, double z) {
+        return getSubtracted(new Vector(x,y,z));
+    }
+
+    public Vector getSubtracted(double x, double y) {
+        return getSubtracted(x,y,0);
+    }
+
     public Vector getMultiplied(double multiplier) {
         return new Vector(getX() * multiplier,getY() * multiplier, getZ() * multiplier);
     }

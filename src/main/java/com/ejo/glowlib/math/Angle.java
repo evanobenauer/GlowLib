@@ -6,13 +6,12 @@ package com.ejo.glowlib.math;
  */
 public class Angle {
 
-
     public static final double PI = MathE.PI;
 
     /**
      * Angle value given in Radians
      */
-    private double angle;
+    protected double angle;
 
 
     public Angle(double angle, boolean isDegrees) {
@@ -29,15 +28,6 @@ public class Angle {
 
     public Angle() {
         this(0,false);//No parameters, make the angle zero
-    }
-
-
-    private void setAngleRadians(double angle) {
-        this.angle = angle;
-    }
-
-    private void setAngleDegrees(double angle) {
-        this.angle = angle * 180 / PI;
     }
 
 
@@ -63,7 +53,11 @@ public class Angle {
     public Vector getDirectionVector(boolean shouldRound) {
         double x = shouldRound ? MathE.roundDouble(Math.cos(getRadians()),6) : Math.cos(getRadians());
         double y = shouldRound ? MathE.roundDouble(Math.sin(getRadians()),6) : Math.sin(getRadians());
-        return new Vector(x,-y);
+        return new Vector(x,y);
+    }
+
+    public AngleMod getMod() {
+        return new AngleMod(getRadians());
     }
 
 
