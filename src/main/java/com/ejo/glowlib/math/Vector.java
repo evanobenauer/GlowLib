@@ -136,7 +136,7 @@ public class Vector {
     }
 
     public Angle getTheta() {
-        return new Angle(Math.atan(getY()/getX()));
+        return new Angle(Math.atan2(getY(),getX()));
     }
 
 
