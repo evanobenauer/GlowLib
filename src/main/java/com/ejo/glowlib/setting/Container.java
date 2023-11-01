@@ -25,8 +25,9 @@ public class Container<T> {
         return value;
     }
 
-    public void set(T value) {
+    public Container<T> set(T value) {
         this.value = value;
+        return this;
     }
 
 

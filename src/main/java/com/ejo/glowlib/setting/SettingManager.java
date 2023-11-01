@@ -107,12 +107,14 @@ public class SettingManager {
     }
 
 
-    public void setSettingPath(String settingPath) {
+    public SettingManager setSettingPath(String settingPath) {
         this.settingPath = settingPath;
+        return this;
     }
 
-    public void setSettingFileName(String settingFileName) {
+    public SettingManager setSettingFileName(String settingFileName) {
         this.settingFileName = settingFileName;
+        return this;
     }
 
 

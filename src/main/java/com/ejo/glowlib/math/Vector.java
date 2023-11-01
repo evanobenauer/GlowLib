@@ -135,6 +135,10 @@ public class Vector {
         return Math.sqrt(getX() * getX() + getY() * getY());
     }
 
+    /**
+     * Theta returns an angle that ranges from +180 degrees to -180 degrees
+     * @return
+     */
     public Angle getTheta() {
         return new Angle(Math.atan2(getY(),getX()));
     }

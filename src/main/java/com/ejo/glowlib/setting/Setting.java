@@ -45,8 +45,9 @@ public class Setting<T> extends Container<T> {
     }
 
 
-    public void reset() {
+    public Setting<T> reset() {
         set(getDefaultValue());
+        return this;
     }
 
     public boolean save() {

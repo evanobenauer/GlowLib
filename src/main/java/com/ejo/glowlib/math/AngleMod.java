@@ -23,11 +23,13 @@ public class AngleMod extends Angle {
     }
 
 
-    public void setAngle(double angle) {
+    public AngleMod setAngle(double angle) {
         this.angle = angle;
+        return this;
     }
 
-    public void setAngle(double angle,boolean isDegrees) {
+    public AngleMod setAngle(double angle,boolean isDegrees) {
         this.angle = isDegrees ? angle * 180 / PI : angle;
+        return this;
     }
 }
