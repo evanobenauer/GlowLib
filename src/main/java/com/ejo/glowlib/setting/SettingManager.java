@@ -18,7 +18,7 @@ public class SettingManager {
      * If the setting manager is not defined in a setting, the manager will be set to default. This is the default setting manager and will
      * manage all settings without a set manager
      */
-    private static final SettingManager defaultManager = new SettingManager("setting","settings");
+    private static final SettingManager defaultManager = new SettingManager("setting", "settings");
 
 
     private final HashMap<String, Setting<?>> settingList = new HashMap<>();
@@ -34,6 +34,7 @@ public class SettingManager {
 
     /**
      * In order to save, a setting must be STATIC so that there is only 1 setting
+     *
      * @param path
      * @param fileName
      * @return
@@ -43,20 +44,21 @@ public class SettingManager {
         ArrayList<String[]> dataList = new ArrayList<>();
 
         for (Setting setting : getSettingList().values()) {
-            String[] settingDataList = {setting.getKey(),setting.get() + "",setting.getType()};
+            String[] settingDataList = {setting.getKey(), setting.get() + "", setting.getType()};
             dataList.add(settingDataList);
         }
         return CSVManager.saveAsCSV(dataList, path, fileName);
     }
 
     public boolean saveAll() {
-        return saveAll(getSettingPath(),getSettingFileName());
+        return saveAll(getSettingPath(), getSettingFileName());
     }
 
     /**
      * Data is loaded as a string from the .CSV file and placed into the settings with a key provided in the document. Settings have to
      * be parsed. If a setting does not meet the requirements of being an Integer, Float, Double, Boolean, or String, it will be unable
      * to be properly loaded with the current system
+     *
      * @param path
      * @param fileName
      * @return
@@ -103,7 +105,7 @@ public class SettingManager {
     }
 
     public boolean loadAll() {
-        return loadAll(getSettingPath(),getSettingFileName());
+        return loadAll(getSettingPath(), getSettingFileName());
     }
 
 

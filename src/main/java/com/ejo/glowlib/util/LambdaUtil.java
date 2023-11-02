@@ -19,6 +19,7 @@ public class LambdaUtil {
     /**
      * The Custom Return functional interface allows for any specified return value (except void) with a set of parameters, PARAM
      * ::Example Lambda Statement: LambdaUtil.custRet<boolean> lambda = (params) -> {return false};
+     *
      * @param <RETURN>
      */
     @FunctionalInterface

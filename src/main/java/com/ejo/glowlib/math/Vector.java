@@ -6,10 +6,10 @@ package com.ejo.glowlib.math;
  */
 public class Vector {
 
-    public static final Vector I = new Vector(1,0,0);
-    public static final Vector J = new Vector(0,1,0);
-    public static final Vector K = new Vector(0,0,1);
-    public static final Vector NULL = new Vector(0,0,0);
+    public static final Vector I = new Vector(1, 0, 0);
+    public static final Vector J = new Vector(0, 1, 0);
+    public static final Vector K = new Vector(0, 0, 1);
+    public static final Vector NULL = new Vector(0, 0, 0);
 
     protected double x, y, z;
 
@@ -17,7 +17,7 @@ public class Vector {
      * A vector without inputted parameters will default to the NULL vector <0,0,0>
      */
     public Vector() {
-        this(0,0,0);
+        this(0, 0, 0);
     }
 
     /**
@@ -35,7 +35,7 @@ public class Vector {
      * 2D
      */
     public Vector(double x, double y) {
-        this(x,y,0);
+        this(x, y, 0);
     }
 
 
@@ -54,7 +54,7 @@ public class Vector {
      * 2D
      */
     public Vector(double radius, Angle angle) {
-        this(radius,angle,0);
+        this(radius, angle, 0);
     }
 
 
@@ -74,11 +74,11 @@ public class Vector {
     }
 
     public Vector getAdded(double x, double y, double z) {
-        return getAdded(new Vector(x,y,z));
+        return getAdded(new Vector(x, y, z));
     }
 
     public Vector getAdded(double x, double y) {
-        return getAdded(x,y,0);
+        return getAdded(x, y, 0);
     }
 
     public Vector getSubtracted(Vector vec) {
@@ -86,15 +86,15 @@ public class Vector {
     }
 
     public Vector getSubtracted(double x, double y, double z) {
-        return getSubtracted(new Vector(x,y,z));
+        return getSubtracted(new Vector(x, y, z));
     }
 
     public Vector getSubtracted(double x, double y) {
-        return getSubtracted(x,y,0);
+        return getSubtracted(x, y, 0);
     }
 
     public Vector getMultiplied(double multiplier) {
-        return new Vector(getX() * multiplier,getY() * multiplier, getZ() * multiplier);
+        return new Vector(getX() * multiplier, getY() * multiplier, getZ() * multiplier);
     }
 
     public Vector getCross(Vector vec) {
@@ -114,7 +114,7 @@ public class Vector {
     }
 
     public Vector getUnitVector() {
-        return getMultiplied(1/getMagnitude());
+        return getMultiplied(1 / getMagnitude());
     }
 
 
@@ -137,10 +137,11 @@ public class Vector {
 
     /**
      * Theta returns an angle that ranges from +180 degrees to -180 degrees
+     *
      * @return
      */
     public Angle getTheta() {
-        return new Angle(Math.atan2(getY(),getX()));
+        return new Angle(Math.atan2(getY(), getX()));
     }
 
 
@@ -149,7 +150,7 @@ public class Vector {
     }
 
     public Angle getPhi() {
-        return new Angle(Math.acos(getZ()/getMagnitude()));
+        return new Angle(Math.acos(getZ() / getMagnitude()));
     }
 
 

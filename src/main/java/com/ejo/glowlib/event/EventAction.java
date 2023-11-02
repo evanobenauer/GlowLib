@@ -16,6 +16,7 @@ public class EventAction implements Runnable {
      * This is the default EventAction constructor.
      * In order to create an event code using this constructor, you must use a lambda statement as the action argument
      * If the action is to be subscribed to the event upon its instantiation, you are able to accomplish that with this
+     *
      * @param subscribeOnInstantiation
      * @param action
      */
@@ -29,29 +30,32 @@ public class EventAction implements Runnable {
     /**
      * This constructor is able to register an action to an event. It will not be subscribed upon instantiation and must be done
      * so outside the action
+     *
      * @param event
      * @param action
      */
     public EventAction(EventE event, Runnable action) {
-        this(event,false,action);
+        this(event, false, action);
     }
 
     /**
      * This constructor allows the specification of an action, but does not declare an event to go along with the action.
      * The event must subscribe the action on its own as it will not be attached on event creation
+     *
      * @param action
      */
     public EventAction(Runnable action) {
-        this(null, false,action);
+        this(null, false, action);
     }
 
     /**
      * This constructor allows for the declaration of an event without the declaration of an action. The action must be declared
      * using an instantiation of the EventAction class and override the run() method
+     *
      * @param event
      */
     public EventAction(EventE event) {
-        this(event, false,null);
+        this(event, false, null);
     }
 
     /**
@@ -60,7 +64,7 @@ public class EventAction implements Runnable {
      * run() method. Code must be added there.
      */
     public EventAction() {
-        this(null, false,null);
+        this(null, false, null);
     }
 
 

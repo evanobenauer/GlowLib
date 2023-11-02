@@ -38,6 +38,7 @@ public class EventE {
     /**
      * Adds an action to the execution list
      * Subscribing an action to the event means that wherever the event is posted, the action will execute
+     *
      * @param action
      * @return
      */
@@ -65,11 +66,12 @@ public class EventE {
         return false;
     }
 
-        /**
-         * Removes an action from the execution list
-         * @param action
-         * @return
-         */
+    /**
+     * Removes an action from the execution list
+     *
+     * @param action
+     * @return
+     */
     public boolean unsubscribeAction(EventAction action) {
         try {
             action.isSubscribed().set(false);
@@ -91,10 +93,11 @@ public class EventE {
         return false;
     }
 
-        /**
-         * Removes all currently subscribed actions from the event
-         * @return
-         */
+    /**
+     * Removes all currently subscribed actions from the event
+     *
+     * @return
+     */
     public boolean unsubscribeAllActions() {
         try {
             for (EventAction action : getActions()) unsubscribeAction(action);

@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //TODO: This class is still very much a work in progress. It is not professional or organized. Fix that
+
 /**
  * The mathematics class is a class with many functions for various different calculations that may be needed
  * while programming
@@ -20,7 +21,7 @@ public class MathE {
     }
 
     public static double roundDouble(double number, int sigFigs) {
-        String num = String.format("%." + sigFigs + "f",number);
+        String num = String.format("%." + sigFigs + "f", number);
         return Double.parseDouble(num);
     }
 
@@ -116,7 +117,7 @@ public class MathE {
             return roots;
         }
     }
-    
+
     /**
      * Fourth degree polynomial solver
      */

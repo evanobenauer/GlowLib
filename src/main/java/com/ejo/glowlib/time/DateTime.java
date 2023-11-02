@@ -10,7 +10,7 @@ import java.util.Calendar;
  */
 public class DateTime {
 
-    public static final DateTime NULL_TIME = new DateTime(0,0,0);
+    public static final DateTime NULL_TIME = new DateTime(0, 0, 0);
 
     private final Calendar calendar;
 
@@ -53,7 +53,7 @@ public class DateTime {
 
     public static DateTime getCurrentDateTime() {
         LocalDateTime localDateTime = LocalDateTime.now();
-        return new DateTime(localDateTime.getYear(),localDateTime.getMonthValue(),localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond());
+        return new DateTime(localDateTime.getYear(), localDateTime.getMonthValue(), localDateTime.getDayOfMonth(), localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond());
     }
 
     public boolean isWeekend() {

@@ -6,7 +6,7 @@ package com.ejo.glowlib.util;
 public class StringUtil {
 
     public static char getLetterFromIndex(int index) {
-        return switch(index) {
+        return switch (index) {
             case 0 -> 'a';
             case 1 -> 'b';
             case 2 -> 'c';
