@@ -23,11 +23,11 @@ public class Angle {
      * @param angle the angle given strictly in RADIANS
      */
     public Angle(double angle) {
-        this(angle,false);
+        this(angle, false);
     }
 
     public Angle() {
-        this(0,false);//No parameters, make the angle zero
+        this(0, false);//No parameters, make the angle zero
     }
 
 
@@ -40,20 +40,21 @@ public class Angle {
     }
 
 
-    public Vector getDirectionVector() {
-        return getDirectionVector(false);
+    public Vector getUnitVector() {
+        return getUnitVector(false);
     }
 
     /**
      * Returns a unit vector pointing in the direction that the angle tells it. It points on the plane that the angle
      * lies, which would be specified by the user during calculations
+     *
      * @param shouldRound
      * @return
      */
-    public Vector getDirectionVector(boolean shouldRound) {
-        double x = shouldRound ? MathE.roundDouble(Math.cos(getRadians()),6) : Math.cos(getRadians());
-        double y = shouldRound ? MathE.roundDouble(Math.sin(getRadians()),6) : Math.sin(getRadians());
-        return new Vector(x,y);
+    public Vector getUnitVector(boolean shouldRound) {
+        double x = shouldRound ? MathE.roundDouble(Math.cos(getRadians()), 6) : Math.cos(getRadians());
+        double y = shouldRound ? MathE.roundDouble(Math.sin(getRadians()), 6) : Math.sin(getRadians());
+        return new Vector(x, y);
     }
 
     public AngleMod getMod() {

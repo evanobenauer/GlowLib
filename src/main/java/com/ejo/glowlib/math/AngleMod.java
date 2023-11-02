@@ -8,18 +8,18 @@ public class AngleMod extends Angle {
 
 
     public AngleMod(double angle, boolean isDegrees) {
-        super(angle,isDegrees);
+        super(angle, isDegrees);
     }
 
     /**
      * @param angle the angle given strictly in RADIANS
      */
     public AngleMod(double angle) {
-        this(angle,false);
+        this(angle, false);
     }
 
     public AngleMod() {
-        this(0,false);//No parameters, make the angle zero
+        this(0, false);//No parameters, make the angle zero
     }
 
 
@@ -28,7 +28,7 @@ public class AngleMod extends Angle {
         return this;
     }
 
-    public AngleMod setAngle(double angle,boolean isDegrees) {
+    public AngleMod setAngle(double angle, boolean isDegrees) {
         this.angle = isDegrees ? angle * 180 / PI : angle;
         return this;
     }
