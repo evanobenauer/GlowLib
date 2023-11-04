@@ -23,6 +23,31 @@ public class AngleMod extends Angle {
     }
 
 
+    public Angle add(Angle angle) {
+        this.angle += angle.getRadians();
+        return this;
+    }
+
+    public Angle add(double angle, boolean isDegrees) {
+        this.angle += new Angle(angle,isDegrees).getRadians();
+        return this;
+    }
+
+    public Angle subtract(Angle angle) {
+        this.angle -= angle.getRadians();
+        return this;
+    }
+
+    public Angle subtract(double angle, boolean isDegrees) {
+        this.angle -= new Angle(angle,isDegrees).getRadians();
+        return this;
+    }
+
+    public Angle multiply(double mul) {
+        this.angle *= mul;
+        return this;
+    }
+
     public AngleMod setAngle(double angle) {
         this.angle = angle;
         return this;

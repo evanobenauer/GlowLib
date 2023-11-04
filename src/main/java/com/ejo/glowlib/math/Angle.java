@@ -30,6 +30,25 @@ public class Angle {
         this(0, false);//No parameters, make the angle zero
     }
 
+    public Angle getAdded(Angle angle) {
+        return new Angle(getRadians() + angle.getRadians());
+    }
+
+    public Angle getAdded(double angle, boolean isDegrees) {
+        return new Angle(angle + (isDegrees ? getDegrees() : getRadians()), isDegrees);
+    }
+
+    public Angle getSubtracted(Angle angle) {
+        return new Angle(getRadians() - angle.getRadians());
+    }
+
+    public Angle getSubtracted(double angle, boolean isDegrees) {
+        return new Angle(angle - (isDegrees ? getDegrees() : getRadians()), isDegrees);
+    }
+
+    public Angle getMultiplied(double mul) {
+        return new Angle(getRadians() * mul);
+    }
 
     public double getRadians() {
         return angle;
