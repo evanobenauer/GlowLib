@@ -73,25 +73,40 @@ public class Vector {
         return new Vector(getX() + vec.getX(), getY() + vec.getY(), getZ() + vec.getZ());
     }
 
-    public Vector getAdded(double x, double y, double z) {
-        return getAdded(new Vector(x, y, z));
-    }
-
     public Vector getAdded(double x, double y) {
         return getAdded(x, y, 0);
     }
 
+    public Vector getAdded(double x, double y, double z) {
+        return getAdded(new Vector(x, y, z));
+    }
+
+
     public Vector getSubtracted(Vector vec) {
         return new Vector(getX() - vec.getX(), getY() - vec.getY(), getZ() - vec.getZ());
+    }
+
+    public Vector getSubtracted(double x, double y) {
+        return getSubtracted(x, y, 0);
     }
 
     public Vector getSubtracted(double x, double y, double z) {
         return getSubtracted(new Vector(x, y, z));
     }
 
-    public Vector getSubtracted(double x, double y) {
-        return getSubtracted(x, y, 0);
+    public Vector getScaled(Vector vec) {
+        return new Vector(getX() * vec.getX(), getY() * vec.getY(), getZ() * vec.getZ());
     }
+
+    public Vector getScaled(double x, double y) {
+        return new Vector(getX() * x, getY() * y, getZ() * 1);
+    }
+
+    public Vector getScaled(double x, double y, double z) {
+        return new Vector(getX() * x, getY() * y, getZ() * z);
+    }
+
+
 
     public Vector getMultiplied(double multiplier) {
         return new Vector(getX() * multiplier, getY() * multiplier, getZ() * multiplier);

@@ -56,14 +56,6 @@ public class VectorMod extends Vector {
         this(vector.getX(), vector.getY(), vector.getZ());
     }
 
-
-    public VectorMod set(Vector vector) {
-        this.x = vector.getX();
-        this.y = vector.getY();
-        this.z = vector.getZ();
-        return this;
-    }
-
     public VectorMod setX(double x) {
         this.x = x;
         return this;
@@ -86,10 +78,57 @@ public class VectorMod extends Vector {
         return this;
     }
 
+    public VectorMod add(double x, double y) {
+        this.x += x;
+        this.y += y;
+        return this;
+    }
+
+    public VectorMod add(double x, double y, double z) {
+        this.x += x;
+        this.y += y;
+        this.z += z;
+        return this;
+    }
+
     public VectorMod subtract(Vector vec) {
         this.x -= vec.getX();
         this.y -= vec.getY();
         this.z -= vec.getZ();
+        return this;
+    }
+
+    public VectorMod subtract(double x, double y) {
+        this.x -= x;
+        this.y -= y;
+        return this;
+    }
+
+    public VectorMod subtract(double x, double y, double z) {
+        this.x -= x;
+        this.y -= y;
+        this.z -= z;
+        return this;
+    }
+
+    public Vector scale(Vector vec) {
+        this.x *= vec.getX();
+        this.y *= vec.getY();
+        this.z *= vec.getZ();
+        return this;
+    }
+
+    public Vector scale(double x, double y) {
+        this.x *= x;
+        this.y *= y;
+        this.z *= 1;
+        return this;
+    }
+
+    public Vector scale(double x, double y, double z) {
+        this.x *= x;
+        this.y *= y;
+        this.z *= z;
         return this;
     }
 
