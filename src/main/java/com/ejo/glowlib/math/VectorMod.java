@@ -111,21 +111,21 @@ public class VectorMod extends Vector {
         return this;
     }
 
-    public Vector scale(Vector vec) {
+    public VectorMod scale(Vector vec) {
         this.x *= vec.getX();
         this.y *= vec.getY();
         this.z *= vec.getZ();
         return this;
     }
 
-    public Vector scale(double x, double y) {
+    public VectorMod scale(double x, double y) {
         this.x *= x;
         this.y *= y;
         this.z *= 1;
         return this;
     }
 
-    public Vector scale(double x, double y, double z) {
+    public VectorMod scale(double x, double y, double z) {
         this.x *= x;
         this.y *= y;
         this.z *= z;
