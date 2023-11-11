@@ -46,7 +46,7 @@ public class CSVManager {
      */
     public static <K, T> boolean saveAsCSV(HashMap<K, T[]> hashMap, String folderPath, String fileName) {
         FileManager.createFolderPath(folderPath); //Creates the folder path if it does not exist
-        String outputFile = folderPath + (folderPath.equals("") ? "" : "/") + fileName + ".csv";
+        String outputFile = folderPath + (folderPath.equals("") ? "" : "/") + fileName.replace(".csv","") + ".csv";
         try {
             FileWriter writer = new FileWriter(outputFile);
 
@@ -71,7 +71,7 @@ public class CSVManager {
      * @return
      */
     public static ArrayList<String[]> getDataFromCSV(String folderPath, String fileName) {
-        File file = new File(folderPath + (folderPath.equals("") ? "" : "/") + fileName + ".csv");
+        File file = new File(folderPath + (folderPath.equals("") ? "" : "/") + fileName.replace(".csv","") + ".csv");
         ArrayList<String[]> rawDataList = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -94,7 +94,7 @@ public class CSVManager {
      * @return
      */
     public static HashMap<String, String[]> getHMDataFromCSV(String folderPath, String fileName) {
-        File file = new File(folderPath + (folderPath.equals("") ? "" : "/") + fileName + ".csv");
+        File file = new File(folderPath + (folderPath.equals("") ? "" : "/") + fileName.replace(".csv","") + ".csv");
         HashMap<String, String[]> rawDataHashMap = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -123,7 +123,7 @@ public class CSVManager {
         try {
             FileManager.createFolderPath(outputDirectory);
             List<String> files = getCSVFilesInDirectory(combineDirectory);
-            FileWriter writer = new FileWriter(outputDirectory + (outputDirectory.equals("") ? "" : "/") + outputFileName + ".csv");
+            FileWriter writer = new FileWriter(outputDirectory + (outputDirectory.equals("") ? "" : "/") + outputFileName.replace(".csv","") + ".csv");
 
             for (String file : files) {
                 FileReader fileReader = new FileReader(combineDirectory + "/" + file);
@@ -158,10 +158,10 @@ public class CSVManager {
     public static boolean clearDuplicates(String directory, String name) {
         HashSet<String> uniqueValues = new HashSet<>();
         try {
-            FileReader reader = new FileReader(directory + (directory.equals("") ? "" : "/") + name + ".csv");
+            FileReader reader = new FileReader(directory + (directory.equals("") ? "" : "/") + name.replace(".csv","") + ".csv");
             BufferedReader br = new BufferedReader(reader);
             String line;
-            FileWriter writer = new FileWriter(directory + (directory.equals("") ? "" : "/") + name + "_temp" + ".csv");
+            FileWriter writer = new FileWriter(directory + (directory.equals("") ? "" : "/") + name.replace(".csv","") + "_temp" + ".csv");
             while ((line = br.readLine()) != null) {
                 if (uniqueValues.add(line)) {
                     writer.append(line);
@@ -171,8 +171,8 @@ public class CSVManager {
             writer.flush();
             writer.close();
             reader.close();
-            FileManager.deleteFile(directory, name + ".csv");
-            FileManager.renameFile(directory, name + "_temp" + ".csv", name + ".csv");
+            FileManager.deleteFile(directory, name.replace(".csv","") + ".csv");
+            FileManager.renameFile(directory, name.replace(".csv","") + "_temp" + ".csv", name.replace(".csv","") + ".csv");
             return true;
         } catch (IOException e) {
             e.printStackTrace();
