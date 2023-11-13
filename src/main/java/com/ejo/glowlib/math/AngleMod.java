@@ -52,7 +52,7 @@ public class AngleMod extends Angle {
      * Simplifies the angle to be between 0 and 2PI
      * @return
      */
-    private AngleMod simplify() {
+    public AngleMod simplify() {
         while (this.angle > Math.PI * 2) {
             this.angle -= Math.PI * 2;
         }
