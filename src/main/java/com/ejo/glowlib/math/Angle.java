@@ -50,6 +50,21 @@ public class Angle {
         return new Angle(getRadians() * mul);
     }
 
+    /**
+     * Simplifies the angle to be between 0 and 2PI
+     * @return
+     */
+    private Angle getSimplified() {
+        double rad = getRadians();
+        while (rad > Math.PI * 2) {
+            rad -= Math.PI * 2;
+        }
+        while (rad < 0) {
+            rad += Math.PI * 2;
+        }
+        return new Angle(rad);
+    }
+
     public double getRadians() {
         return angle;
     }

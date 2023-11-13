@@ -23,28 +23,42 @@ public class AngleMod extends Angle {
     }
 
 
-    public Angle add(Angle angle) {
+    public AngleMod add(Angle angle) {
         this.angle += angle.getRadians();
         return this;
     }
 
-    public Angle add(double angle, boolean isDegrees) {
+    public AngleMod add(double angle, boolean isDegrees) {
         this.angle += new Angle(angle,isDegrees).getRadians();
         return this;
     }
 
-    public Angle subtract(Angle angle) {
+    public AngleMod subtract(Angle angle) {
         this.angle -= angle.getRadians();
         return this;
     }
 
-    public Angle subtract(double angle, boolean isDegrees) {
+    public AngleMod subtract(double angle, boolean isDegrees) {
         this.angle -= new Angle(angle,isDegrees).getRadians();
         return this;
     }
 
-    public Angle multiply(double mul) {
+    public AngleMod multiply(double mul) {
         this.angle *= mul;
+        return this;
+    }
+
+    /**
+     * Simplifies the angle to be between 0 and 2PI
+     * @return
+     */
+    private AngleMod simplify() {
+        while (this.angle > Math.PI * 2) {
+            this.angle -= Math.PI * 2;
+        }
+        while (this.angle < 0) {
+            this.angle += Math.PI * 2;
+        }
         return this;
     }
 
