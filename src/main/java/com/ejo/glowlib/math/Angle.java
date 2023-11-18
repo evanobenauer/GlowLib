@@ -56,13 +56,17 @@ public class Angle {
      */
     public Angle getSimplified() {
         double rad = getRadians();
-        while (rad > Math.PI * 2) {
-            rad -= Math.PI * 2;
-        }
-        while (rad < 0) {
-            rad += Math.PI * 2;
-        }
+        while (rad > Math.PI * 2) rad -= Math.PI * 2;
+        while (rad < 0) rad += Math.PI * 2;
         return new Angle(rad);
+    }
+
+    public double getSin() {
+        return Math.sin(getRadians());
+    }
+
+    public double getCos() {
+        return Math.cos(getRadians());
     }
 
     public double getRadians() {
@@ -103,7 +107,7 @@ public class Angle {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Angle angle)) return false;
-        return angle.getRadians() == getRadians();
+        if (!(obj instanceof Angle ang)) return false;
+        return ang.getRadians() == getRadians();
     }
 }
