@@ -25,10 +25,10 @@ public class MathE {
         return Double.parseDouble(num);
     }
 
-    public static double calculateAverage(ArrayList<Double> values) {
+    public static <T extends Number> double calculateAverage(ArrayList<T> values) {
         double avg = 0;
-        for (double val : values) {
-            avg += val;
+        for (T val : values) {
+            avg += val.doubleValue();
         }
         avg /= values.size();
         return avg;
