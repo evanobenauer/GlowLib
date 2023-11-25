@@ -10,7 +10,7 @@ import java.util.Calendar;
  */
 public class DateTime {
 
-    public static final DateTime NULL_TIME = new DateTime(0,0,0);
+    public static final DateTime NULL_TIME = new DateTime(0, 0, 0);
 
     private final Calendar calendar;
 
@@ -51,7 +51,7 @@ public class DateTime {
     }
 
     public DateTime getAdded(int seconds) {
-        return new DateTime(getYear(),getMonth(),getDay(),getHour(),getMinute(),getSecond() + seconds);
+        return new DateTime(getYear(), getMonth(), getDay(), getHour(), getMinute(), getSecond() + seconds);
     }
 
     public boolean isWeekend() {
@@ -61,7 +61,7 @@ public class DateTime {
 
     public static DateTime getCurrentDateTime() {
         LocalDateTime localDateTime = LocalDateTime.now();
-        return new DateTime(localDateTime.getYear(),localDateTime.getMonthValue(),localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond());
+        return new DateTime(localDateTime.getYear(), localDateTime.getMonthValue(), localDateTime.getDayOfMonth(), localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond());
     }
 
     public long getDateTimeID() {
@@ -102,7 +102,7 @@ public class DateTime {
     }
 
     public String getMonthString() {
-        String month = getCalendar().getTime().toString().substring(4, 19).substring(0,3);
+        String month = getCalendar().getTime().toString().substring(4, 19).substring(0, 3);
         return switch (month) {
             case ("Jan") -> "01";
             case ("Feb") -> "02";
@@ -121,19 +121,19 @@ public class DateTime {
     }
 
     private String getDayString() {
-        return getCalendar().getTime().toString().substring(4, 19).substring(4,6);
+        return getCalendar().getTime().toString().substring(4, 19).substring(4, 6);
     }
 
     private String getHourString() {
-        return getCalendar().getTime().toString().substring(4, 19).substring(7,9);
+        return getCalendar().getTime().toString().substring(4, 19).substring(7, 9);
     }
 
     private String getMinuteString() {
-        return getCalendar().getTime().toString().substring(4, 19).substring(10,12);
+        return getCalendar().getTime().toString().substring(4, 19).substring(10, 12);
     }
 
     private String getSecondString() {
-        return getCalendar().getTime().toString().substring(4, 19).substring(13,15);
+        return getCalendar().getTime().toString().substring(4, 19).substring(13, 15);
     }
 
 
