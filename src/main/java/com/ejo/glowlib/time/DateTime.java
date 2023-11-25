@@ -15,7 +15,7 @@ public class DateTime {
     private final Calendar calendar;
 
     public DateTime(int year, int month, int day, int hour, int min, int sec) {
-        calendar = Calendar.getInstance();
+        calendar = (Calendar) Calendar.getInstance().clone();
         calendar.set(year, month - 1, day, hour, min, sec);
     }
 
@@ -50,10 +50,8 @@ public class DateTime {
         );
     }
 
-
-    public static DateTime getCurrentDateTime() {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        return new DateTime(localDateTime.getYear(),localDateTime.getMonthValue(),localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond());
+    public DateTime getAdded(int seconds) {
+        return new DateTime(getYear(),getMonth(),getDay(),getHour(),getMinute(),getSecond() + seconds);
     }
 
     public boolean isWeekend() {
@@ -61,13 +59,50 @@ public class DateTime {
         return dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY;
     }
 
-    public String getYear() {
+    public static DateTime getCurrentDateTime() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        return new DateTime(localDateTime.getYear(),localDateTime.getMonthValue(),localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond());
+    }
+
+    public long getDateTimeID() {
+        try {
+            return Long.parseLong(getYearString() + getMonthString() + getDayString() + getHourString() + getMinuteString() + getSecondString());
+        } catch (NumberFormatException e) {
+            return -1L;
+        }
+    }
+
+    public int getYear() {
+        return Integer.parseInt(getYearString());
+    }
+
+    public int getMonth() {
+        return Integer.parseInt(getMonthString());
+    }
+
+    public int getDay() {
+        return Integer.parseInt(getDayString());
+    }
+
+    public int getHour() {
+        return Integer.parseInt(getHourString());
+    }
+
+    public int getMinute() {
+        return Integer.parseInt(getMinuteString());
+    }
+
+    public int getSecond() {
+        return Integer.parseInt(getSecondString());
+    }
+
+
+    public String getYearString() {
         return String.valueOf(getCalendar().getWeekYear());
     }
 
-    public String getMonth() {
-        String timeString = getCalendar().getTime().toString().substring(4, 19);
-        String month = timeString.substring(0, 3);
+    public String getMonthString() {
+        String month = getCalendar().getTime().toString().substring(4, 19).substring(0,3);
         return switch (month) {
             case ("Jan") -> "01";
             case ("Feb") -> "02";
@@ -85,61 +120,20 @@ public class DateTime {
         };
     }
 
-    public String getDay() {
-        String timeString = getCalendar().getTime().toString().substring(4, 19);
-        return timeString.substring(4, 6);
+    private String getDayString() {
+        return getCalendar().getTime().toString().substring(4, 19).substring(4,6);
     }
 
-    public String getHour() {
-        String timeString = getCalendar().getTime().toString().substring(4, 19);
-        return timeString.substring(7, 9);
+    private String getHourString() {
+        return getCalendar().getTime().toString().substring(4, 19).substring(7,9);
     }
 
-    public String getMinute() {
-        String timeString = getCalendar().getTime().toString().substring(4, 19);
-        return timeString.substring(10, 12);
+    private String getMinuteString() {
+        return getCalendar().getTime().toString().substring(4, 19).substring(10,12);
     }
 
-    public String getSecond() {
-        String timeString = getCalendar().getTime().toString().substring(4, 19);
-        return timeString.substring(13, 15);
-    }
-
-    public int getYearInt() {
-        return Integer.parseInt(getYear());
-    }
-
-    public int getMonthInt() {
-        return Integer.parseInt(getMonth());
-    }
-
-    public int getDayInt() {
-        return Integer.parseInt(getDay());
-    }
-
-    public int getHourInt() {
-        return Integer.parseInt(getHour());
-    }
-
-    public int getMinuteInt() {
-        return Integer.parseInt(getMinute());
-    }
-
-    public int getSecondInt() {
-        return Integer.parseInt(getSecond());
-    }
-
-
-    public String getFormattedDateTime() {
-        return getYear() + "-" + getMonth() + "-" + getDay() + " " + getHour() + ":" + getMinute() + ":" + getSecond();
-    }
-
-    public long getDateTimeID() {
-        try {
-            return Long.parseLong(getYear() + getMonth() + getDay() + getHour() + getMinute() + getSecond());
-        } catch (Exception e) {
-            return -1L;
-        }
+    private String getSecondString() {
+        return getCalendar().getTime().toString().substring(4, 19).substring(13,15);
     }
 
 
@@ -150,17 +144,17 @@ public class DateTime {
 
     @Override
     public String toString() {
-        return getFormattedDateTime();
+        return getYearString() + "-" + getMonthString() + "-" + getDayString() + " " + getHourString() + ":" + getMinuteString() + ":" + getSecondString();
     }
 
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof DateTime dateTime)) return false;
-        return dateTime.getYear().equals(getYear())
-                && dateTime.getMonth().equals(getMonth())
-                && dateTime.getDay().equals(getDay())
-                && dateTime.getHour().equals(getHour())
-                && dateTime.getMinute().equals(getMinute())
-                && dateTime.getSecond().equals(getSecond());
+        return dateTime.getYearString().equals(getYearString())
+                && dateTime.getMonthString().equals(getMonthString())
+                && dateTime.getDayString().equals(getDayString())
+                && dateTime.getHourString().equals(getHourString())
+                && dateTime.getMinuteString().equals(getMinuteString())
+                && dateTime.getSecondString().equals(getSecondString());
     }
 }
