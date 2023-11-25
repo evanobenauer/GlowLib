@@ -44,13 +44,15 @@ public class DoOnce {
         }
     }
 
-    public void reset() {
+    public DoOnce reset() {
         shouldRun = true;
+        return this;
     }
 
 
-    public void setAction(Runnable action) {
+    public DoOnce setAction(Runnable action) {
         this.action = action;
+        return this;
     }
 
 }

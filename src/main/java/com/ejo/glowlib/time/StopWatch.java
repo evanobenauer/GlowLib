@@ -50,7 +50,7 @@ public class StopWatch {
     }
 
     public boolean hasTimePassedS(double time) {
-        return isStarted() && time*1000 < getTimeMS();
+        return isStarted() && time * 1000 < getTimeMS();
     }
 
     public double getTimeMS() {
@@ -58,7 +58,7 @@ public class StopWatch {
     }
 
     public double getTimeS() {
-        return Double.parseDouble(String.format("%.2f",((float)getTimeMS())/1000));
+        return Double.parseDouble(String.format("%.2f", ((float) getTimeMS()) / 1000));
     }
 
 

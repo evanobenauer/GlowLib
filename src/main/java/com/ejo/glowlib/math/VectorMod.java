@@ -12,7 +12,7 @@ public class VectorMod extends Vector {
      * 3D
      */
     public VectorMod(double x, double y, double z) {
-        super(x,y,z);
+        super(x, y, z);
     }
 
     /**
@@ -20,7 +20,7 @@ public class VectorMod extends Vector {
      * 2D
      */
     public VectorMod(double x, double y) {
-        this(x,y,0);
+        this(x, y, 0);
     }
 
     /**
@@ -28,7 +28,7 @@ public class VectorMod extends Vector {
      * 3D
      */
     public VectorMod(double radius, Angle theta, double z) {
-        super(radius,theta,z);
+        super(radius, theta, z);
     }
 
     /**
@@ -36,7 +36,7 @@ public class VectorMod extends Vector {
      * 2D
      */
     public VectorMod(double radius, Angle angle) {
-        this(radius,angle,0);
+        this(radius, angle, 0);
     }
 
     /**
@@ -44,23 +44,16 @@ public class VectorMod extends Vector {
      * 3D
      */
     public VectorMod(double radiusRho, Angle theta, Angle phi) {
-        super(radiusRho,theta,phi);
+        super(radiusRho, theta, phi);
     }
 
     /**
      * Create a VectorMod from a normal vector
+     *
      * @param vector
      */
     public VectorMod(Vector vector) {
-        this(vector.getX(),vector.getY(),vector.getZ());
-    }
-
-
-    public VectorMod set(Vector vector) {
-        this.x = vector.getX();
-        this.y = vector.getY();
-        this.z = vector.getZ();
-        return this;
+        this(vector.getX(), vector.getY(), vector.getZ());
     }
 
     public VectorMod setX(double x) {
@@ -72,6 +65,7 @@ public class VectorMod extends Vector {
         this.y = y;
         return this;
     }
+
     public VectorMod setZ(double z) {
         this.z = z;
         return this;
@@ -81,6 +75,60 @@ public class VectorMod extends Vector {
         this.x += vec.getX();
         this.y += vec.getY();
         this.z += vec.getZ();
+        return this;
+    }
+
+    public VectorMod add(double x, double y) {
+        this.x += x;
+        this.y += y;
+        return this;
+    }
+
+    public VectorMod add(double x, double y, double z) {
+        this.x += x;
+        this.y += y;
+        this.z += z;
+        return this;
+    }
+
+    public VectorMod subtract(Vector vec) {
+        this.x -= vec.getX();
+        this.y -= vec.getY();
+        this.z -= vec.getZ();
+        return this;
+    }
+
+    public VectorMod subtract(double x, double y) {
+        this.x -= x;
+        this.y -= y;
+        return this;
+    }
+
+    public VectorMod subtract(double x, double y, double z) {
+        this.x -= x;
+        this.y -= y;
+        this.z -= z;
+        return this;
+    }
+
+    public VectorMod scale(Vector vec) {
+        this.x *= vec.getX();
+        this.y *= vec.getY();
+        this.z *= vec.getZ();
+        return this;
+    }
+
+    public VectorMod scale(double x, double y) {
+        this.x *= x;
+        this.y *= y;
+        this.z *= 1;
+        return this;
+    }
+
+    public VectorMod scale(double x, double y, double z) {
+        this.x *= x;
+        this.y *= y;
+        this.z *= z;
         return this;
     }
 
@@ -107,7 +155,7 @@ public class VectorMod extends Vector {
     }
 
     public VectorMod setCartesian(double x, double y) {
-        return setCartesian(x,y,0);
+        return setCartesian(x, y, 0);
     }
 
     public VectorMod setCylindrical(double radius, Angle theta, double z) {
@@ -125,7 +173,7 @@ public class VectorMod extends Vector {
     }
 
     public VectorMod copy() {
-        return new VectorMod(getX(),getY(),getZ());
+        return new VectorMod(getX(), getY(), getZ());
     }
 
 }

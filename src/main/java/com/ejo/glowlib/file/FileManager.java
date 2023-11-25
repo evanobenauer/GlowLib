@@ -18,6 +18,7 @@ public class FileManager {
 
     /**
      * This will create an entire file path in the run directory of the program
+     *
      * @param path
      */
     public static void createFolderPath(String path) {
@@ -35,15 +36,17 @@ public class FileManager {
 
     /**
      * Returns the file path of the file. It will replace all "\" with "/" to be in use for file management
+     *
      * @param file
      * @return
      */
     public static String getFormattedFilePath(File file) {
-        return file.getPath().replace("\\","/");
+        return file.getPath().replace("\\", "/");
     }
 
     /**
      * Creates a blank file of any name. Items can be written to this file when created
+     *
      * @param name
      * @param path
      */
@@ -62,13 +65,14 @@ public class FileManager {
 
     /**
      * Deletes a file with the name and path specified
+     *
      * @param name
      * @param path
      * @return
      */
     public static boolean deleteFile(String path, String name) {
         try {
-            File file = new File(path,name);
+            File file = new File(path, name);
             return file.delete();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,6 +82,7 @@ public class FileManager {
 
     /**
      * Renames the specified file with path and name to a new name
+     *
      * @param path
      * @param name
      * @param newName
@@ -85,8 +90,8 @@ public class FileManager {
      */
     public static boolean renameFile(String path, String name, String newName) {
         try {
-            File file = new File(path,name);
-            return file.renameTo(new File(path,newName));
+            File file = new File(path, name);
+            return file.renameTo(new File(path, newName));
         } catch (Exception e) {
             return false;
         }
@@ -94,6 +99,7 @@ public class FileManager {
 
     /**
      * Returns a boolean value if a file exists or now at the specified path and name
+     *
      * @param path
      * @param name
      * @return
@@ -105,6 +111,7 @@ public class FileManager {
 
     /**
      * Returns a list of file path/name strings for all files in the specified directory
+     *
      * @param directory
      * @return
      */

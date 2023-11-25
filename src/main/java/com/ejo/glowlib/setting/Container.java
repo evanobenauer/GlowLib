@@ -10,6 +10,7 @@ public class Container<T> {
 
     /**
      * Default Constructor
+     *
      * @param value
      */
     public Container(T value) {
@@ -25,8 +26,9 @@ public class Container<T> {
         return value;
     }
 
-    public void set(T value) {
+    public Container<T> set(T value) {
         this.value = value;
+        return this;
     }
 
 

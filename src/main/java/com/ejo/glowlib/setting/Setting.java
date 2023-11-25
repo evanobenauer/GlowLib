@@ -7,6 +7,7 @@ import com.ejo.glowlib.time.DateTime;
 /**
  * This is a setting class. Setting classes are classes that can have their values saved and loaded to the computer for future use.
  * This class holds a container to place a value as well as a name.
+ *
  * @param <T>
  */
 public class Setting<T> extends Container<T> {
@@ -33,20 +34,21 @@ public class Setting<T> extends Container<T> {
     }
 
     public Setting(SettingManager settingManager, String key) {
-        this(settingManager,key,null);
+        this(settingManager, key, null);
     }
 
     public Setting(String key, T defaultVal) {
-        this(SettingManager.getDefaultManager(),key,defaultVal);
+        this(SettingManager.getDefaultManager(), key, defaultVal);
     }
 
     public Setting(String key) {
-        this(SettingManager.getDefaultManager(),key,null);
+        this(SettingManager.getDefaultManager(), key, null);
     }
 
 
-    public void reset() {
+    public Setting<T> reset() {
         set(getDefaultValue());
+        return this;
     }
 
     public boolean save() {
@@ -75,6 +77,7 @@ public class Setting<T> extends Container<T> {
      * getType returns the type of data stored in the setting. It will only return a readable type if the data is one of a String, Integer,
      * Float, Double, Boolean, Vector, Color, or DateTime. If the setting is set to null at default and has an active null value, the type will
      * be presented as nullType. If the type is not one of our saveable types, it will be set to unreadable and will be absent from loading
+     *
      * @return
      */
     public String getType() {
