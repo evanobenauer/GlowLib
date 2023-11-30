@@ -3,10 +3,7 @@ package com.ejo.glowlib.file;
 import com.ejo.glowlib.time.StopWatch;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class CSVManager {
 
@@ -51,7 +48,7 @@ public class CSVManager {
             FileWriter writer = new FileWriter(outputFile);
 
             for (K key : hashMap.keySet()) {
-                writer.write(key + "," + String.join(",", (String[]) hashMap.get(key)) + "\n");
+                writer.write(key + "," + Arrays.toString(hashMap.get(key)).replace("[","").replace("]","") + "\n");
             }
             writer.close();
             return true;
