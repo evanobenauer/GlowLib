@@ -93,7 +93,8 @@ public class DateTime {
 
 
     public String getYearString() {
-        return String.valueOf(getCalendar().getWeekYear());
+        String timeString = getCalendar().getTime().toString();
+        return timeString.substring(timeString.length() - 4);
     }
 
     public String getMonthString() {

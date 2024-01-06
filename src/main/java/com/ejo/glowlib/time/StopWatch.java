@@ -40,6 +40,22 @@ public class StopWatch {
         if (hasTimePassedS(timeS)) restart();
     }
 
+    public void runMS(int timeMS, Runnable action) {
+        start();
+        if (hasTimePassedMS(timeMS)) {
+            action.run();
+            restart();
+        }
+    }
+
+    public void runS(int timeS, Runnable action) {
+        start();
+        if (hasTimePassedS(timeS)) {
+            action.run();
+            restart();
+        }
+    }
+
 
     public boolean isStarted() {
         return getStartTimeMS() > -1;
