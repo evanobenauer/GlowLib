@@ -5,49 +5,49 @@ package com.ejo.glowlib.util;
  */
 public class NumberUtil {
 
-    public static boolean isNumberInteger(double number) {
+    public static boolean isNumberInteger(Number number) {
         try {
-            return number == (int) number;
+            return number.doubleValue() == (int) number;
         } catch (Exception exception) {
             return false;
         }
     }
 
-    public static boolean isNumberLong(double number) {
+    public static boolean isNumberLong(Number number) {
         try {
-            return number == (long) number;
+            return number.doubleValue() == (long) number;
         } catch (Exception exception) {
             return false;
         }
     }
 
-    public static boolean isNumberShort(double number) {
+    public static boolean isNumberShort(Number number) {
         try {
-            return number == (short) number;
+            return number.doubleValue() == (short) number;
         } catch (Exception exception) {
             return false;
         }
     }
 
-    public static boolean isNumberFloat(double number) {
+    public static boolean isNumberFloat(Number number) {
         try {
-            return number == (float) number;
+            return number.doubleValue() == (float) number;
         } catch (Exception exception) {
             return false;
         }
     }
 
-    public static boolean isNumberDouble(double number) {
+    public static boolean isNumberDouble(Number number) {
         try {
-            return number == (double) number;
+            return number.doubleValue() == (double) number;
         } catch (Exception exception) {
             return false;
         }
     }
 
-    public static Number getBoundValue(Number value, double low, double high) {
-        if (value.doubleValue() < low) value = low;
-        if (value.doubleValue() > high) value = high;
+    public static Number getBoundValue(Number value, Number low, Number high) {
+        if (value.doubleValue() < low.doubleValue()) value = low;
+        if (value.doubleValue() > high.doubleValue()) value = high;
         return value;
     }
 

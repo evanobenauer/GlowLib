@@ -59,11 +59,6 @@ public class DateTime {
         return dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY;
     }
 
-    public static DateTime getCurrentDateTime() {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        return new DateTime(localDateTime.getYear(), localDateTime.getMonthValue(), localDateTime.getDayOfMonth(), localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond());
-    }
-
     public long getDateTimeID() {
         try {
             return Long.parseLong(getYearString() + getMonthString() + getDayString() + getHourString() + getMinuteString() + getSecondString());
@@ -158,4 +153,10 @@ public class DateTime {
                 && dateTime.getMinuteString().equals(getMinuteString())
                 && dateTime.getSecondString().equals(getSecondString());
     }
+
+    public static DateTime getCurrentDateTime() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        return new DateTime(localDateTime.getYear(), localDateTime.getMonthValue(), localDateTime.getDayOfMonth(), localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond());
+    }
+
 }

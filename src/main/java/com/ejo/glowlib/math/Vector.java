@@ -69,6 +69,19 @@ public class Vector {
     }
 
 
+    public Vector x(double x) {
+        return new Vector(x,getY(),getZ());
+    }
+
+    public Vector y(double y) {
+        return new Vector(getX(),y,getZ());
+    }
+
+    public Vector z(double z) {
+        return new Vector(getX(),getY(),z);
+    }
+
+
     public Vector getAdded(Vector vec) {
         return new Vector(getX() + vec.getX(), getY() + vec.getY(), getZ() + vec.getZ());
     }
