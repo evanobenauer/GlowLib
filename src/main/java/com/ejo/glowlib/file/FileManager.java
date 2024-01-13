@@ -104,7 +104,7 @@ public class FileManager {
      * @param name
      * @return
      */
-    private boolean doesFileExist(String path, String name) {
+    public boolean doesFileExist(String path, String name) {
         File file = new File(path, name);
         return file.exists();
     }

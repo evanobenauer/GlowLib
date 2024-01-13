@@ -1,7 +1,5 @@
 package com.ejo.glowlib.file;
 
-import com.ejo.glowlib.time.StopWatch;
-
 import java.io.*;
 import java.util.*;
 
