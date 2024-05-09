@@ -128,7 +128,7 @@ public class Vector {
     public Vector getCross(Vector vec) {
         return new Vector(
                 getY() * vec.getZ() - getZ() * vec.getY(),
-                -getX() * vec.getZ() + getZ() * vec.getX(),
+                -(getX() * vec.getZ() - getZ() * vec.getX()),
                 getX() * vec.getY() - getY() * vec.getX());
     }
 
@@ -136,6 +136,9 @@ public class Vector {
         return getX() * vec.getX() + getY() * vec.getY() + getZ() * vec.getZ();
     }
 
+    public Vector getProjection(Vector onto) {
+        return onto.getMultiplied(getDot(onto) / Math.pow(onto.getMagnitude(),2));
+    }
 
     public double getMagnitude() {
         return Math.sqrt(getX() * getX() + getY() * getY() + getZ() * getZ());
